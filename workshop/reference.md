@@ -4,7 +4,7 @@
 
 You can control how you invoke Amazon Q Developer via the various key shortcuts, including customising these to how you work.
 
-![keyboard shortcuts for Amazon Q Developer](/images/amazon-q-vscode-shortcuts.png)
+![keyboard shortcuts for Amazon Q Developer](/images/q-vscode-view-keyboard.png)
 
 One of the key short cuts to know when you are working in the inline editor, is the < and > arrows. These allow you to cycle through suggestions when you are prompted by Amazon Q Developer.
 
