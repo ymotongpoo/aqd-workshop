@@ -13,6 +13,9 @@ One of the key short cuts to know when you are working in the inline editor, is 
 * **/** - brings up all available options with Amazon Q 
 * **/clear** - clears up the current conversation, resetting the context
 * **/dev** - invokes Amazon Q Developer Agent for software development
+* **/doc** - invokes Amazon Q Developer Agent that writes documentation for your project
+* **/review** - invokes Amazon Q Developer Agent that will review the security of your project
+* **/test** - invokes Amazon Q Developer Agent that generates unit tests for your functions (Python and Java)
 * **/transform** - invokes Amazon Q Developer Agent for code transformation
 * **@workspace** - uses files in your project workspace as additional context
 
@@ -21,8 +24,6 @@ One of the key short cuts to know when you are working in the inline editor, is 
 There are a number of logs that are created by the Amazon Q Developer plugin:
 
 * **Amazon Q Logs** - the main directory to review what the Amazon Q plugin is doing 
-* **Amazon Q** - is blank
-* **Amazon Q Language Server** - logs created by the indexing process when you enable @workspace
 
 **Chat interface context Size**
 
@@ -34,11 +35,4 @@ This is a beta capability, and sometimes you might find the indexing getting stu
 
 **Amazon Q Quotas**
 
-Refer to the Amazon Q [documentation page here](https://aws.amazon.com/q/developer/pricing/) for the very latest updates. As of November 1st, 2024 the key things you need to be aware of are:
-
-* Number of Agent invocations when using Builder ID vs Pro Tier (5 vs 30)
-* Number of Chat interactions (50 vs unlimited)
-* Upgrade code using /transform (1000 lines of code vs 4000 lines of code)
-* Security scans of your project (50 scans vs 500) 
-
-With the professional Tier you also get additional capabilities not available with the Free Tier, so refer to the page above for more info.
+Refer to the Amazon Q [documentation page here](https://aws.amazon.com/q/developer/pricing/) for the very latest updates.With the professional Tier you also get additional capabilities not available with the Free Tier, so refer to the page above for more info.
