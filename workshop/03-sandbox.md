@@ -245,7 +245,6 @@ When you are working with your projects, you might encounter occasional errors w
 2/ Navigate to the "Amazon Q: Workspace Index"
 3/ Untick the box, wait a few seconds, and then re-tick the box.
 
-
 **Clear out cache**
 
 Occasionally stopping and restarting the Workspace Index will not resolve the issue. Opening the logs will show error messages (a common one I have seen is a Fais index failure). When this happens, it is often best to delete the cache and get Amazon Q to reindex. You can find the location of the cache by looking at the Amazon Q logs. Here is an extract from mine:
@@ -267,6 +266,10 @@ From this we can see that **~/.aws/amazonq/cache/** is the location where the Wo
 * Re-enable the Workspace Index
 
 The indexes will be recreated automatically, and you can verify this by checking in the logs.
+
+**Working with git branches**
+
+One thing to be wary of is that if you are frequently checking out different branches of your code repository, the Workspace Index might not have updated. This means that code suggestions might still refer to code that was in previous branches, which will give you potentially incorrect output. After you checkout a branch, stop/start the index process.
 
 ---
 

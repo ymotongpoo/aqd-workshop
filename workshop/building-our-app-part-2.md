@@ -170,15 +170,23 @@ If you have the app currently running, exit (CTRL + C) as we are going to reset 
 Thinking about what changes we might need to make, it is likely we are going to impact multiple files. I decided that @workspace is probably going to be the best option here.
 
 > @workspace Update the code to this application to add the ability yo export the results of a customer survey as a CSV file. The export file name should be the same as the survey. The export should only appear on the results page.
+
 > @workspace add a new button on the feedback.html that will allow the user to export the survey data.
 
-Review the output and follow the tasks. You might encounter a few errors and issues, typically along the lines of:
+Review the output and follow the tasks. 
+
+
+You might encounter a few errors and issues, typically along the lines of:
 
 * the export code does not work due to outdated methods
 * check that the export code is actually exporting the correct data from the tables
 * the export code generates errors such as " TypeError: a bytes-like object is required, not 'str'" or "ValueError: Files must be opened in binary mode or use BytesIO."
 
-After you clear the errors, you should get a download file. Whilst this is good, it is not really what we are looking for. Lets build upon this and ask a follow up prompt, making sure to keep the survey.py route open.
+You can use Amazon Q Developer to help you fix these issues. They key here is to help provide the right context. That typically means having an idea of what are the key source files you think are involved. Try different prompt in the chat interface with different open files and see how the out differs. You can also use @workspace here to get Q to help you assess your project in the context of the errors you are seeing. 
+
+> I have put together a more detailed guide in a blog post, [Amazon Q Developer Tips: No.23 Debugging with Amazon Q](https://dev.to/aws/amazon-q-developer-tips-no23-debugging-with-amazon-q-11ee).
+
+After you clear the errors, run the application and try exporting a survey. You should get a download file. Whilst this is good, it is not really what we are looking for. Lets build upon this and ask a follow up prompt, making sure to keep the survey.py route open.
 
 > Update the export code so that the export includes the name of the survey, description, as well as all the responses
 
