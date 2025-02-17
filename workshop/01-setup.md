@@ -63,4 +63,4 @@ Before we dive into the labs, it is worth going through how you can configure Am
 
 
 
-Now that you have set everything up, we can proceed to the next step which is [exploring how to get started with Amazon Q](getting-started-with-q.md)
+Now that you have set everything up, we can proceed to the next step which is [exploring how to get started with Amazon Q](02-getting-started-with-q.md)

@@ -8,6 +8,8 @@ In the first part of this lab we are going to start by first looking at the data
 
 **Creating our Python Virtual Environment**
 
+If you have VSCode currently running, close and exit as we will be creating a clean environment to begin this tutorial.
+
 From a terminal, navigate to a new directory where we will start work (I am using projects here as this is what I use, but feel free to switch this to whatever you use), and then type in the following. 
 
 ```

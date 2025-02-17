@@ -139,36 +139,7 @@ Which tool use use depends on a number of factors:
 * The amount of effort a task needs is a consideration. For example, you might want to make large or big changes to your project, where the effort to do this manually would be significant
 * Are you learning something vs want to go faster? Chat tends to work great for learning new areas, where as inline works great for boosting productivity
 
----
-
-**Context**
-
-Context is the single most important thing you will need to master to get the best out of using generative AI tools like Amazon Q Developer. It will make the difference between output that does not help you with your tasks vs useful and good outputs that you can use within your projects.
-
-*What is context?*
-
-Context is the information that is provided to the underlying large language model (LLM) in order to provide you with an answer based on the input (prompt) you provide. You can think about this as having conversations with your colleagues about how to architect or build something, with the additional information you provide to either help them understand or need to provide a better answer. In some ways, it helps answer those "it depends" questions.
-
-*Examples of context*
-
-When using Amazon Q Developer, here are some examples of how it gathers context. It will use this, togehter with your prompt to help guide its output.
-
-1. Amazon Q Developer will use the current open file as the key piece of context - make sure you have the right file open when asking questions via the Chat interface
-2. The import statements in your code - Amazon Q will understand import statements and use these to influence the output
-3. It will look at existing code within the file as context (examples) of what how to create any output. Providing examples that model what you want your code to look like (doc strings, error handling, variable naming conventions, etc) will ensure that future code follows the same approach
-4. The Amazon Q Chat interface has a maximum of 4000 characters (at the time of writing this, November 2024) which is the maximum input it can use for context. This might influence how you structure your projects - for example, breaking projects into small files can often work well 
-5. You can use Amazon Q Developer Workspace Index to index your project workspace, which enables all the files within your projects to be accessable as context. This is useful if you need to refer to multiple files when asking a question
-6. The use of feedback (thumbs up/down) can help shape context as it provides positive reinforcement
-
-*Some other things to think about*
-
-* When using the Amazon Q Developer inline code - when you are in the editor, latency and performance are critical, and so this affects the context size that Amazon Q Developer is able to use. It will take the prompt provided, as well as additional information within the file its working on 
-* When using the Amazon Q Developer chat interface - when you use the Amazon Q Developer chat, you will notice there is a small number just below the submit icon (4000/4000). This is the size of the context window. From a latency perspective, there is less need to be very responsive, and so this allows Amazon Q Developer to provide a bigger context size.
-* Amazon Q Developer chat inteface tabs - you can open up several chat interface tabs by clicking on the + next to the Chat. Each of these will be new conversations with new context. You can open up to ten of these chat conversations.
-
-Amazon Q Developer also uses things such as open tabs in VSCode, as well as key files depending on programming language (for example, the pom.xml in Java) to add additional information to help it make better suggestions.
-
-If you want to get low level and see this working, you can check the logging of the Amazon Q Developer plugin and see this in action.
+We will learn more about this in the next lab.
 
 ---
 
@@ -193,16 +164,10 @@ If you do encounter these, then try:
 The guardrails provide important protection for users of Amazon Q, and the tension between what will work and what trips them is changing all the time.
 
 
----
 
->
-> **Additional learning resources**
-> 
-> I have just covered the basics here, but we are always plublishing new content that shows how other developers are doing cool things with Amazon Q Developer. If you want to know more, head over to [community.aws](https://community.aws/amazon-q)
->
 
 ### Getting hands on in the sandbox
 
-Lets try some of these out now in the next lab which will walk you through how these work in detail. [Practicing with Amazon Q Developer](sandbox.md)
+Lets try some of these out now in the next lab which will walk you through how these work in detail. [Practicing with Amazon Q Developer](03-sandbox.md)
 
 

@@ -42,7 +42,7 @@ These code suggestions are automatic by default. The next section will walk you 
 
 **Function prompt**
 
-Amazon Q Developer can understand your intent and provides suggestions based on the function names. The more descriptive the function name is, the better the suggestions.
+1/ Amazon Q Developer can understand your intent and provides suggestions based on the function names. The more descriptive the function name is, the better the suggestions.
 
 Open up a new file in your VSCode, and type the following:
 
@@ -52,7 +52,7 @@ def towers_of_hanoi(
 
 Do you copy/paste :-)
 
-As you hit the ( you should see Amazon Q Developer already anticipating what you want and provide some code suggestions. You can cycle between suggestions using the < and > cursor keys, and accept with TAB or quit by hitting ESC.
+2/ As you hit the ( you should see Amazon Q Developer already anticipating what you want and provide some code suggestions. You can cycle between suggestions using the < and > cursor keys, and accept with TAB or quit by hitting ESC.
 
 You can try with some other function names, for example:
 
@@ -60,7 +60,7 @@ You can try with some other function names, for example:
 def get_average(numbers):
 ```
 
-As your add code to your file, Amazon Q will take this into consideration. You can create a single function at the top of your code that has everything you want (for example a doc string, matches your style guide for variable or function name, etc), and then as you add more functions, it will copy the structure.
+3/ As your add code to your file, Amazon Q will take this into consideration. You can create a single function at the top of your code that has everything you want (for example a doc string, matches your style guide for variable or function name, etc), and then as you add more functions, it will copy the structure.
 
 For example, add the following at the top of the file (you can delete everything you just added)
 
@@ -106,7 +106,7 @@ You should see that it generates very simiar boilerplate code that matches what 
 
 **Single line comment**
 
-Amazon Q Developer can understand your intent and provides suggestions based on single line comments. For example, in the IDE type the following:
+4/ Amazon Q Developer can understand your intent and provides suggestions based on single line comments. For example, in the IDE type the following:
 
 ```
 # function to print a message
@@ -116,7 +116,7 @@ When you hit return, you will see Amazon Q provide some code suggestions.
 
 **Multi line comment**
 
-This works the same as the previous one, except you can have the comments over a number of lines. For example, type the following in your IDE
+5/ This works the same as the previous one, except you can have the comments over a number of lines. For example, type the following in your IDE
 
 ```
 """
@@ -131,7 +131,7 @@ When you hit enter, you should see Amazon Q provide code suggestions.
 
 **Single line prompt**
 
-Amazon Q Developer will understand your intent and provides suggestions based on the a prompt that you provide within the file you are working on. For example, type the following and then hit enter
+6/ Amazon Q Developer will understand your intent and provides suggestions based on the a prompt that you provide within the file you are working on. For example, type the following and then hit enter
 
 ```
 # CREATE a function called get user age, ask the user to input their age, and RETURN the user's age
@@ -139,9 +139,9 @@ Amazon Q Developer will understand your intent and provides suggestions based on
 
 You will see that it creates code based on this single line prompt.
 
-*Multi-line prompt*
+**Multi-line prompt**
 
-This works exactly like the previous one, except you can put your prompts on multiple lines. For example
+7/ This works exactly like the previous one, except you can put your prompts on multiple lines. For example
 
 ```
  # CREATE a function called get user age
@@ -151,7 +151,7 @@ This works exactly like the previous one, except you can put your prompts on mul
 
 **Enabling and disabling auto prompting**
 
-Something that you will need figure out as you start using Amazon Q Developer is whether you want it to automatically make code suggestions as you code, or whether you want to manually invoke it via some command line controls.
+8/ Something that you will need figure out as you start using Amazon Q Developer is whether you want it to automatically make code suggestions as you code, or whether you want to manually invoke it via some command line controls.
 
 You can enable/disable the auto-suggestions by clicking on the "Pause Auto Suggestions" when you bring up the Amazon Q menu (click on the Amazon Q on the VSCode status bar at the bottom)
 
@@ -175,7 +175,7 @@ Re-enable auto suggestions as we will be using this during the workshop.
 
 **Inline prompt**
 
-Inline prompt works slightly differently. There are two modes you can use it in:
+9/ Inline prompt works slightly differently. There are two modes you can use it in:
 
 * From the either the position where your cursor is within the current open file
 * Selecting a block of code 
@@ -191,11 +191,11 @@ I find this mode very powerful and improves the speed at which I can make update
 
 *Software Quality*
 
-A quick way that I use the inline prompt is to improve the quality of the code produced, by making sure that I am able to reduce the amount of errors that the code generates. Two ways Amazon Q makes this easy is by adding error handling, and implementing techniques such as negative space programming.
+10/ A quick way that I use the inline prompt is to improve the quality of the code produced, by making sure that I am able to reduce the amount of errors that the code generates. Two ways Amazon Q makes this easy is by adding error handling, and implementing techniques such as negative space programming.
 
-1/ From your VSCode, create a new file called "quality.py" and copy the contents of [this file](https://github.com/094459/porto-techhub-amazon-q-workshop/blob/main/resources/in-line.py) into it. Save the file.
+From your VSCode, create a new file called "quality.py" and copy the contents of [this file](https://github.com/094459/porto-techhub-amazon-q-workshop/blob/main/resources/in-line.py) into it. Save the file.
 
-2/ Select this block of code:
+Select this block of code:
 
 ```
 @app.route('/hello/<name>')
@@ -203,13 +203,13 @@ def hello_name(name):
     return 'Hello %s!' % name
 ```
 
-3/ Press COMMAND + I to bring up the inline prompt, and now type the following:
+Press COMMAND + I to bring up the inline prompt, and now type the following:
 
 > add error handling to this function
 
 Review the output. Press ESC once you have had the chance to understand the code, as we do not want to accept this code
 
-4/ Highlight the same code and invoke the inline editor again. This time, use this prompt:
+Highlight the same code and invoke the inline editor again. This time, use this prompt:
 
 > apply negative space programming to this function
 
@@ -241,15 +241,14 @@ In the previous section you saw how to configure and enable Amazon Q Workplace i
 
 When you are working with your projects, you might encounter occasional errors when using @workspace. One of the most common issues I have seen is where as the local project files change (perhaps due to git checkout) @workspace can sometimes provide incorrect guidance based on files that are no longer there. When this happens, I stop and restart the service. To do this:
 
-1/ From the Amazon Q menu on the bottom of the VSCode status bar , select O'pen Settings"
+1/ From the Amazon Q menu on the bottom of the VSCode status bar , select "Open Settings"
 2/ Navigate to the "Amazon Q: Workspace Index"
 3/ Untick the box, wait a few seconds, and then re-tick the box.
 
-When you click on the OUTPUT tab and then select the pull down menu, you may see multiple Amazon Q Language Server log entries. Try them all, and you should see in one of them, the indexing process starting.
 
 **Clear out cache**
 
-Occasionally stopping and restarting the Workspace Index will not resolve the issue. Opening the logs will show error messages (a common one I have seen is a Fais index failure). When this happens, it is often best to delete the cache and get Amazon Q to reindex. You can find the location of the cache by looking at the Amazon Q Language Server logs. Here is an extract from mine:
+Occasionally stopping and restarting the Workspace Index will not resolve the issue. Opening the logs will show error messages (a common one I have seen is a Fais index failure). When this happens, it is often best to delete the cache and get Amazon Q to reindex. You can find the location of the cache by looking at the Amazon Q logs. Here is an extract from mine:
 
 ```
 [Info  - 16:02:49] bm25 indexing complete, time: 0.92ms
@@ -266,6 +265,8 @@ From this we can see that **~/.aws/amazonq/cache/** is the location where the Wo
 * Disable the Amazon Q: Workplace Index using the previous step
 * From the terminal, locate the directory where the indexes are created and then delete them
 * Re-enable the Workspace Index
+
+The indexes will be recreated automatically, and you can verify this by checking in the logs.
 
 ---
 
@@ -295,7 +296,9 @@ Because context sizes are so important, and they are of a finite size, you might
 
 **Project workspace**
 
-If you are wanting to work in a project (for example Python) but have a lot of other code in your workspace (perhaps because you are working in a mono repo environment) the responses you can get from Amazon Q may not be what you expect. You might get Javascript or Python despite the project you are working in being in the other language. The best way to tackle this is to try and setup your IDE so that it is just working in a subfolder of your mono repo and avoid files within your local workspace that are a distraction.
+You can use Amazon Q Developer Workspace Index to index your project workspace, which enables all the files within your projects to be accessable as context. This is useful if you need to refer to multiple files when asking a question.
+
+One thing to be aware of though if you are using a mono repo. If you are wanting to work in a project (for example Python) but have a lot of other code in your workspace the responses you can get from Amazon Q may not be what you expect. You might get Javascript or Python despite the project you are working in being in the other language. The best way to tackle this is to try and setup your IDE so that it is just working in a subfolder of your mono repo and avoid files within your local workspace that are a distraction.
 
 **Customisation**
 
@@ -362,11 +365,11 @@ In recent updates to the Amazon Q plugin, where code suggestions are updates to 
 
 ---
 
-### 7. Amazon Q Developer Agent for software development
+### 7. Amazon Q Developer Agents 
 
-Amazon Q Developer Agent for software development (/dev) is a powerful capability of Amazon Q that allows you to provide a prompt which will be analysed, broken down into a series of tasks, and then code generated. There are a few things you should know before using this:
+Amazon Q Developer Agents are powerful capabilities of Amazon Q Developer that automate the tasks of creating or updating software. There are a few things you should know before using this:
 
-* limited quota - you have a limited number of quota for using /dev, so you should use it wisely. If you are using Free Tier (Builder ID) then you will have five invocations per month.
+* limited quota - you have a limited number of quota for using agents (/dev, /test, /doc, /review, etc), so you should use it wisely. If you are using Free Tier (Builder ID) then you will have five invocations per month.
 * refine output from /dev - when you use /dev you have the possibility of providing feedback that will regenerate the code. This is not part of your service quota and so you should review carefully the initial output of /dev, and then use the "Provide Feedback and Regenerate" button to provide any refinements or updates you need. You can only do this three times though.
 * use scaffolding - we mentioned scaffolding previously, which is a very helpful technique to ensure consistency in the output you get from /dev
 * use cases - there are many use cases that are a good fit for /dev, and you will come to intuitively know when /dev vs other Amazon Q modalities are the right fit for what you are trying to do.
@@ -383,5 +386,5 @@ Check out [this very short video](https://www.youtube.com/shorts/Fmn37wGQUY8) th
 
 ### Complete!
 
-Ok, you are now up to speed with the Amazon Q Developer plugin, and it is time to see what you can achieve with it. Head over to the next section [Breaking down problems](breaking-down-problems.md).
+Ok, you are now up to speed with the Amazon Q Developer plugin, and it is time to see what you can achieve with it. Head over to the next section [Breaking down problems](04-breaking-down-problems.md).
 
