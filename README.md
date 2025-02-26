@@ -52,7 +52,7 @@ We are going to build a **customer feedback survey** application. The applicatio
 
 ## 1. Installation and Setup
 
-You do not need an AWS account to use the Amazon Q Developer plugin. You can use the free tier by [creating a Builder ID](https://aws-(https://s12d.com/builder-id), and then using that Builder ID to login.
+You do not need an AWS account to use the Amazon Q Developer plugin. You can use the free tier by [creating a Builder ID](https://s12d.com/builder-id), and then using that Builder ID to login.
 
 [Follow this link](workshop/01-setup.md) to get started with installing the Amazon Q Developer plugin.
 
