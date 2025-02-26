@@ -8,7 +8,7 @@ We are now ready for the first hands on part of this lab, setting up the generat
 
 (If you already have a Builder ID, you can skip this step)
 
-[Creating a Builder ID](https://aws-oss.beachgeek.co.uk/44y) is the first step in being able to use the Amazon Q Developer plugin. All you need is a valid email address to create a Builder ID. Head over to the [Builder ID page](https://aws-oss.beachgeek.co.uk/44y) and click on the "Sign in with Builder ID". This will pop up a browser window where you can now create your Builder ID, using your email address. 
+[Creating a Builder ID](https://s12d.com/builder-id) is the first step in being able to use the Amazon Q Developer plugin. All you need is a valid email address to create a Builder ID. Head over to the [Builder ID page](https://s12d.com/builder-id) and click on the "Sign in with Builder ID". This will pop up a browser window where you can now create your Builder ID, using your email address. 
 
 You can follow these screenshows to see the flow. After accessing the Builder ID page, you will need to provide an email address (1) and then create an alias (Your Name) (2). You will be sent an email verification which you will need to enter (3), and the email should only take a few moments to arrive (but check your SPAM folder just in case)(4)
 
@@ -38,7 +38,7 @@ If you click on that, you should see a menu pop up that shows that you are curre
 
 **Signing into Amazon Q Developer**
 
-Now that we have created our Builder ID, and installed the Amazon Q Developer plugin, we can take the last step which is to log in using that Builder ID. 
+Now that we have created our [Builder ID](https://s12d.com/builder-id), and installed the Amazon Q Developer plugin, we can take the last step which is to log in using that [Builder ID](https://s12d.com/builder-id). 
 
 From the previous screenshot, if we click on the Q icon it will bring up the Amazon Q menu (3). When we click on that, we will see the login options for Amazon Q Developer (4) - there are two, we will ignore the "Use wit Pro Licence" and click on the "Use for Free" box and then click on Continue. This will bring up a pop up box (5). Take a note of the reference code, and then click on Proceed to Browser, which will bring up (6). Review that the code is the same as for the previous step, and then click on "Confirm and Continue", which will then bring up (7) to let you review the permissions that the Amazon Q Developer will need to work. If you are happy, click on "Allow Access" and if successfull, you will see the final screen (8) which you can close.
 
