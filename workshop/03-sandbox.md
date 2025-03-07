@@ -220,7 +220,7 @@ Press ESC again to reject the code. Close the file and delete it ("quality.py")
 
 ### 2. Using the VSCode Menu integration
 
-From the main editor, you can invoke Amazon Q through the meny integration. When you right click anywhere in an active page, you will see Amazon Q, which then opens up to a number of different options. We will explore these now:
+From the main editor, you can invoke Amazon Q through the menu integration. When you right click anywhere in an active page, you will see Amazon Q, which then opens up to a number of different options. We will explore these now:
 
 * Explain - this will send whatever you have highlighted to the Amazon Q Chat panel, and ask Amazon Q to help explain what this code does
 * Refactor - this will review the snippet and suggest ways you can improve code readability or efficiency, among other improvements
