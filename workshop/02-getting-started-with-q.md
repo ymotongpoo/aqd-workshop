@@ -74,7 +74,7 @@ When you are working on our code within the editor, Amazon Q Developer provides 
 
 **Amazon Q Developer logs**
 
-You can access the various Amazon Q Developer plugin logs from the OUTPUT menu option that appears when you have the terminal section in VSCode. When you select the pull down menu, you will see Amazon Q and Amazon Q Logs. The latter provides detailed information about how the plugin is working and interacting with the backend generative AI services powered by Amazon Bedrock.
+The Amazon Q Developer plugin generates logs that you can access from the OUTPUT menu option that appears when you have the terminal section in VSCode. When you select the pull down menu, you will see **Amazon Q Logs**. This provides detailed information about how the plugin is working and interacting with the backend generative AI services powered by Amazon Bedrock. One of the key pieces of information that is captured here is **ConversationID** which tracks the plugin's interactions and is useful if you are engaging with the Amazon Web Services support. 
 
 ---
 
