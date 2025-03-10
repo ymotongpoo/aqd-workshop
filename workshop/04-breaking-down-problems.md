@@ -25,7 +25,7 @@ Take this business request, and:
 
 The workshop host will manage time keeping, and after 20 minutes we will review the output.
 
-> **Additional reading** I recently wrote a blog post that puts these into practice which you can read about in the post, [How I built an arcade scrolling game in a day with generative AI](https://dev.to/aws/how-i-built-an-arcade-scrolling-game-in-one-day-ek8)
+> **Additional reading** I recently wrote a blog post that puts these into practice which you can read about in the post, [How I built an arcade scrolling game in a day with generative AI](https://community.aws/content/2oAoQyCZWhRMpHWecW6dGykzP0T/how-i-built-an-arcade-scrolling-game-in-one-day?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el)
 
 ---
 
