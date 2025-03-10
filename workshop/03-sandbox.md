@@ -1,15 +1,17 @@
 ![Amazon Q Developer header](/images/q-vscode-header.png)
 
-## Getting confident with Amazon Q Developer
+## Amazon Q Developerを使いこなす
 
-Before we build an application, we will complete a few excercises that will allow you to get familiar with how the different capabilities of Amazon Q work. 
+アプリケーションを構築する前に、Amazon Qのさまざまな機能がどのように動作するのかを理解するための演習をいくつか行います。
 
-> **Do you use other generative AI coding tools?**
+> **他の生成AIコーディングツールを使っていますか？**
 >
->If you currently are using a generative AI tool (e.g. Continue, Supermaven, Copilot, etc) then you may find that some of the keyboard shortcuts do not work. For the duration of this workshop, find the other AI coding tools you are using and temporarily disable them. To do this, go to the plugin section, locate your plugin and then from the settings select disable.
+>現在、生成AIツール（Continue、Supermaven、Copilotなど）を使用している場合、キーボードショートカットの一部が機能しないことがあります。このワークショップの期間中、使用している他のAIコーディングツールを見つけ、一時的に無効にしてください。これを行うには、プラグインのセクションに行き、プラグインを探し、設定から無効化を選択します。
 >
 
-Create a new directory, and then start a new VSCode instance. We will use this whilst we are running through the basics. Once we have completed this lab, we will close everything down.
+新しいディレクトリを作成し、新しいVSCodeインスタンスを起動します。
+基本的な確認事項をこのディレクトリを使って確認します。
+このステップが完了したら、すべてを終了します。
 
 ```
 mkdir q-sandbox
@@ -19,52 +21,61 @@ code .
 
 ---
 
-### 1. Using in-line editor
+### 1. インラインエディタを使う
 
-You can use Amazon Q Developer to help you as you write code within your editor. This section will walk you through how these work to provide you with confidence in how to get the best out of the tool.
+Amazon Q Developerを使えば、エディタ内でコードを書くときに役立ちます。
+この節では、ツールを最大限に活用する方法について自信を持つために、これらがどのように機能するかを説明します。
 
-**Basic functionality**
+**基本機能**
 
-Amazon Q supports a number of different ways you can enter instructions (prompts) that it will use to provide code suggestions. We can summarise these as the following:
+Amazon Qは、コード候補を提供するために使用される指示（プロンプト）を入力するさまざまな方法をサポートしています。
+これらをまとめると以下のようになります。
 
-* Function prompt
-* Single line comment
-* Multi line comment
-* Single line prompt
-* Multi line prompt
-* Inline prompt
+* 関数プロンプト
+* 1行コメント
+* 複数行コメント
+* 1行プロンプト
+* 複数行プロンプト
+* インラインプロンプト
 
-With the exception of the Inline prompt, after entering a prompt and hitting return, this will invoke Amazon Q and it will provide you with some code suggestions. You will get the opportunity to reivew the options using the < and > cursor keys. Occasionally there will only be a single code suggestion in which case you will not get any different output by using the < and > keys.
+インラインプロンプトを除き、プロンプトを入力してリターンを押すと、Amazon Qが起動し、いくつかのコード候補が表示されます。
+左右のカーソルキーを使用してオプションを再表示できます。
+たまにコード候補が1つしか出ない場合がありますが、そのときは<キーと>キーを使っても異なる出力は得られません。
 
-You will notice that the code suggestions are greyed out. To accept the suggestion, you hit TAB.
+コードの候補がグレーアウトしていることにお気づきでしょう。
+提案を受け入れるには、TABキーを押します。
 
-These code suggestions are automatic by default. The next section will walk you through how you can change this behaviour.
+これらのコード提案はデフォルトで自動的に行われます。
+次の節では、この動作を変更する方法を説明します。
 
-**Function prompt**
+**関数プロンプト**
 
-1/ Amazon Q Developer can understand your intent and provides suggestions based on the function names. The more descriptive the function name is, the better the suggestions.
+1/ Amazon Q Developerはあなたの意図を理解し、関数名に基づいて提案を行います。
+関数名がより説明的であればあるほど、より良い提案が得られます。
 
-Open up a new file in your VSCode, and type the following:
+VSCodeで新しいファイルを開き、次のように入力しましょう。
 
-```
+```python
 def towers_of_hanoi(
 ```
 
-Do you copy/paste :-)
+コピペしても良いですよ！
 
-2/ As you hit the ( you should see Amazon Q Developer already anticipating what you want and provide some code suggestions. You can cycle between suggestions using the < and > cursor keys, and accept with TAB or quit by hitting ESC.
+2/ `(` を押すと、Amazon Q Developerがすでにあなたが何をしたいかを予測し、いくつかのコード案を提示しているのが確認できるはずです。
+カーソルキーの<と>で候補を切り替え、TABで受け入れるか、ESCで終了できます。
 
-You can try with some other function names, for example:
+たとえば、他の関数名で試すこともできます。
 
-```
+```python
 def get_average(numbers):
 ```
 
-3/ As your add code to your file, Amazon Q will take this into consideration. You can create a single function at the top of your code that has everything you want (for example a doc string, matches your style guide for variable or function name, etc), and then as you add more functions, it will copy the structure.
+3/ ファイルにコードを追加すると、Amazon Qはこれを考慮します。
+あなたが望むもの（たとえば、docstring、変数名や関数名のスタイルガイドとの一致など）をすべて備えた関数をコードの先頭に1つ作成することができ、さらに関数を追加すると、その構造がコピーされます。
 
-For example, add the following at the top of the file (you can delete everything you just added)
+たとえば、ファイルの先頭に以下を追加します（追加したものはすべて削除してかまいません）。
 
-```
+```python
 def get_average(numbers):
     """
     Calculate the average of a list of numbers.
@@ -89,165 +100,200 @@ def get_average(numbers):
     """
     if not numbers:
         raise ValueError("Empty list provided")
-    
+
     if not all(isinstance(num, (int, float)) for num in numbers):
         raise TypeError("List contains non-numeric elements")
-    
+
     return sum(numbers) / len(numbers)
 ```
 
-Now hit return a few times and then type in the following
+returnを数回押して、次のように入力します。
 
-```
+```python
 def get_mean(numbers)
 ```
 
-You should see that it generates very simiar boilerplate code that matches what you defined as your "standard". This is a very nice feature that allows you to code very quickly whilst ensuring you maintain all the things you want.
+あなたが「標準」として定義したものと非常によく似た定型的なコードが生成されるのがわかるはずです。
+これは、あなたが望むものすべてを確実に維持しながら、非常に素早くコードを書くことを可能にする非常に素晴らしい機能です。
 
-**Single line comment**
+**1行コメント**
 
-4/ Amazon Q Developer can understand your intent and provides suggestions based on single line comments. For example, in the IDE type the following:
+4/ Amazon Q Developerはあなたの意図を理解し、1行のコメントに基づいて提案を提供します。
+たとえば、IDEで次のように入力します。
 
-```
+```python
 # function to print a message
 ```
 
-When you hit return, you will see Amazon Q provide some code suggestions.
+returnを押すと、Amazon Qがいくつかのコードを提案してくれます。
 
-**Multi line comment**
+**複数行コメント**
 
-5/ This works the same as the previous one, except you can have the comments over a number of lines. For example, type the following in your IDE
+5/ これは前のものと同じ働きをしますが、コメントを何行にもわたって書くことができます。
+たとえば、IDEで次のように入力します。
 
-```
+```python
 """
-Given a list that contains some numbers and strings, 
-format the list elements into a string in which the numbers are prepended with a "#" 
+Given a list that contains some numbers and strings,
+format the list elements into a string in which the numbers are prepended with a "#"
 and check for strings and wrap in a double quote.
 """
 ```
 
-When you hit enter, you should see Amazon Q provide code suggestions.
+Enterキーを押すと、Amazon Qがコードを提案してくれるはずです。
 
+**1行プロンプト**
 
-**Single line prompt**
+6/ Amazon Q Developerはあなたが入力したプロンプトに基づいてあなたの意図を理解し、作業中のファイル内で提案を行います。
+たとえば、次のように入力してEnterキーを押します。
 
-6/ Amazon Q Developer will understand your intent and provides suggestions based on the a prompt that you provide within the file you are working on. For example, type the following and then hit enter
-
-```
+```python
 # CREATE a function called get user age, ask the user to input their age, and RETURN the user's age
 ```
 
-You will see that it creates code based on this single line prompt.
+この1行のプロンプトをもとにコードが作成されるのがわかるでしょう。
 
-**Multi-line prompt**
+**複数行プロンプト**
 
-7/ This works exactly like the previous one, except you can put your prompts on multiple lines. For example
+7/ これは、プロンプトを複数の行に書くことができることを除けば、前のものとまったく同じように機能します。
+たとえば次のような形です。
 
-```
+```python
  # CREATE a function called get user age
  # ask the user to input their age
  # RETURN the user's age
 ```
 
-**Enabling and disabling auto prompting**
+**自動プロンプトの有効化と無効化**
 
-8/ Something that you will need figure out as you start using Amazon Q Developer is whether you want it to automatically make code suggestions as you code, or whether you want to manually invoke it via some command line controls.
+8/ Amazon Q Developerを使い始めるに当たって考えなければならないことは、コードを書いている最中に自動的にコード提案をさせたいのか、それともコマンドラインを使って手動で呼び出したいのかということです。
 
-You can enable/disable the auto-suggestions by clicking on the "Pause Auto Suggestions" when you bring up the Amazon Q menu (click on the Amazon Q on the VSCode status bar at the bottom)
+自動サジェストの有効/無効は、Amazon Qメニューを表示したときに「自動サジェストの一時停止（Pause Auto Suggestions）」をクリックすることで設定できます（VSCodeのステータスバー下部にあるAmazon Qをクリック）。
 
-Spend some time experimenting with this. Open up a new file (experiment.py) and then at the top of it write the following:
+これで実験してみましょう。
+新しいファイル(experiment.py)を開き、その一番上に次のように書いてください。
 
-```
+```python
 # Add Python library imports for Flask and SQLAlcamey
 ```
 
-Hit return. You should see Amazon Q thinking (it will be greyed out) before providing you with some code suggestions.
+Enterを押してください。
+コードの候補を表示する前に、Amazon Qが考えていることがわかるはずです（灰色で表示されます）。
 
-Now go to the Amazon Q setting and disable auto suggestion. You should notice that the icon looks like the pause icon. From the same file, delete everything that you previous created and type the same thing
+次に、Amazon Qの設定に行き、自動サジェストを無効にします。
+アイコンが一時停止アイコンのようになるはずです。
+同じファイルから、以前に作成したものをすべて削除し、同じものを入力します。
 
-```
+```python
 # Add Python library imports for Flask and SQLAlcamey
 ```
 
-When you hit return this time, it should not generate any output. No, move your cursor to the end, and hit OPTION + C (Mac), ALT + C (Windows) and this time you should see Amazon Q make some suggestions. If you hit tab to accept, and then hit return and press OPTION/ALT + C again, you will see further suggestions.
+今度はEnterを押しても何も出力されないはずです。
+しかし、カーソルを最後まで移動し、OPTION + C（Mac）、ALT + C（Windows）を押すと、今度はAmazon Qがいくつかの提案をするはずです。
+タブを押して同意し、Enterを押してもう一度OPTION/ALT + Cを押すと、さらなる提案が表示されます。
 
-Re-enable auto suggestions as we will be using this during the workshop.
+ワークショップで使用するため、自動提案を再度有効にしてください。
 
-**Inline prompt**
+**インラインプロンプト**
 
-9/ Inline prompt works slightly differently. There are two modes you can use it in:
+9/ インラインプロンプトの動作は若干異なる。
+使用できるモードは2つあります。
 
-* From the either the position where your cursor is within the current open file
-* Selecting a block of code 
+* 現在開いているファイル内でカーソルがある位置のどちらかから
+* コードブロックの選択
 
-The behaviour is similar. You invoke it with COMMAND + I, and this will bring up a command prompt window. If you do not see this, then there are two things you need to check:
+動作は似ています。
+COMMAND + Iで起動し、コマンドプロンプトウィンドウが表示されます。
+これが表示されない場合、確認すべきことが2つあります。
 
-1. Make sure that you do not have any other VSCode plugins that might be competing with this for COMMAND + I - when I was writing this, COMMAND + I did not work for me, and I had to temporarily disable another plugin that I was no longer using
-2. Make sure the focus is in the actual file open - often I find that the focus is either in the chat interface, or the file explorer. I click within the open file to make sure
+1. 他のVSCodeプラグインがCOMMAND + Iと競合していないことを確認してください - 私がこのワークショップを書いているとき、COMMAND + Iが動作せず、他のプラグインを無効にしなければなりませんでした。
+2. フォーカスが実際に開いているファイル内にあることを確認する - チャットインターフェースかファイルエクスプローラーにフォーカスが当たっていることがよくあります。開いているファイル内をクリックして確実にフォーカスがファイルに当たっているようにします。
 
-Once you enter the prompt, it will now start to work. You cannot select different code segments like the previous ways. You will see your code blocks highlight in Green/Red based on new or changed/deleted code, with an option to Accept (Enter) or Reject (ESC) the sugguestions.
+プロンプトを入力すれば、あとは動き出すだけです。
+以前の方法のように、異なるコードセグメントを選択することはできません。
+新しいコードまたは変更/削除されたコードに基づいて、コードブロックが緑/赤でハイライトされ、提案を受け入れる（Enter）または拒否する（ESC）オプションが表示されます。
 
-I find this mode very powerful and improves the speed at which I can make updates/changes to my code. It tends to work well for specific ways you might want to work - updating existing code blocks for example, adding new functions, asking for optiisations, adding try / catch blocks, and more.
+このモードはとても強力で、コードの更新や変更のスピードを向上させてくれます。
+たとえば、既存のコードブロックの更新、新しい関数の追加、オプションのリクエスト、try/catchブロックの追加などで使えます。
 
-*Software Quality*
+*ソフトウェアの品質*
 
-10/ A quick way that I use the inline prompt is to improve the quality of the code produced, by making sure that I am able to reduce the amount of errors that the code generates. Two ways Amazon Q makes this easy is by adding error handling, and implementing techniques such as negative space programming.
+10/ 私がインラインプロンプトを使う手っ取り早い方法は、コードが生成するエラーの量を減らせるようにすることによって、生成されるコードの質を向上させることです。
+Amazon Qがこれを簡単にする2つの方法は、エラー処理を追加することと、ネガティブスペースプログラミングのようなテクニックを実装することです。
 
-From your VSCode, create a new file called "quality.py" and copy the contents of [this file](https://github.com/094459/porto-techhub-amazon-q-workshop/blob/main/resources/in-line.py) into it. Save the file.
+VSCodeで "quality.py"という新しいファイルを作成し、[このファイル](https://github.com/094459/porto-techhub-amazon-q-workshop/blob/main/resources/in-line.py)の内容をコピーします。
+そしてファイルを保存します。
 
-Select this block of code:
+このコードブロックを選択します。
 
-```
+```python
 @app.route('/hello/<name>')
 def hello_name(name):
     return 'Hello %s!' % name
 ```
 
-Press COMMAND + I to bring up the inline prompt, and now type the following:
+COMMAND + Iを押してインラインプロンプトを表示し、次のように入力します。
 
 > add error handling to this function
 
-Review the output. Press ESC once you have had the chance to understand the code, as we do not want to accept this code
+出力を確認します。
+コードを理解したら、一旦このコードは受け入れたくないので、ESCキーを押してください。
 
-Highlight the same code and invoke the inline editor again. This time, use this prompt:
+同じコードをハイライトし、もう一度インラインエディタを起動します。
+今度はこのプロンプトを使います。
 
 > apply negative space programming to this function
 
-Review the output. How was it different. You could also apply both to the same code block.
-Press ESC again to reject the code. Close the file and delete it ("quality.py")
+出力結果を見直します。
+どう違いましたか。
+同じコードブロックに両方を適用することもできます。
+もう一度 ESC を押して、コードを却下します。
+ファイルを閉じて削除します("quality.py")。
 
 ---
 
-### 2. Using the VSCode Menu integration
+### 2. VSCodeメニュー統合の使用
 
-From the main editor, you can invoke Amazon Q through the menu integration. When you right click anywhere in an active page, you will see Amazon Q, which then opens up to a number of different options. We will explore these now:
+メインのエディターから、メニューの統合を通してAmazon Qを呼び出すことができます。
+アクティブなページのどこかを右クリックすると、Amazon Qが表示され、さまざまなオプションが表示されます。
+これから、これらについて調べてみましょう。
 
-* Explain - this will send whatever you have highlighted to the Amazon Q Chat panel, and ask Amazon Q to help explain what this code does
-* Refactor - this will review the snippet and suggest ways you can improve code readability or efficiency, among other improvements
-* Fix - this is handy if you are seeing linting errors in your code, or are trying to resolve other issues with your code
-* Optimise - this will look to see if it can optimise the performance of the code you have selected
-* Send to Prompt - this will copy the portion you have selected and then move it to the Amazon Q Developer Chat Panel. You can then provide your own prompt to ask Amazon Q Developer what you want it to do. This is an easier way than copy/pasting the code snippet yourself.
-* Inline Chat - this will bring up a small dialog box within the file you are editing, allowing you to enter a prompt. Amazon Q will then generate some code, asking you to then accept or reject it (hitting Enter to accept, or ESC to reject)
+* Explain - これは、あなたがハイライトしたものをAmazon Qチャットパネルに送信し、Amazon Qにこのコードが何をするのかを説明するよう依頼します。
+* Refactor - これは、スニペットをレビューし、コードの可読性や効率などの改善方法を提案します。
+* Fix - これは、コードにlintエラーがある場合や、コードの他の問題を解決しようとしている場合に便利です。
+* Optimise - これは、選択したコードのパフォーマンスを最適化できるかどうかを調べます。
+* Send to Prompt - これで選択した部分がコピーされ、Amazon Q Developer Chat Panelに移動します。そして、Amazon Q Developerに何をさせたいか、あなた自身のプロンプトを提供できます。これは自分でコードスニペットをコピー/ペーストするよりも簡単な方法です。
+* Inline Chat - 編集中のファイル内に小さなダイアログボックスが表示され、プロンプトを入力できます。Amazon Qがコードを生成し、それを受け入れるか拒否するかを尋ねます（受け入れる場合はEnterを、拒否する場合はESCを押してください）。
 
-There is a file in the repo [resources/in-menu.py](https://github.com/094459/q-developer-hands-on/blob/main/resources/in-menu.py) where you can practice some of these. Explore each of them so you can see the kind of output they produce.
+レポジトリ内の[resources/in-menu.py](https://github.com/094459/q-developer-hands-on/blob/main/resources/in-menu.py)に、これらの練習ができるファイルがあります。
+どのような出力が得られるか、それぞれを調べてみてください。
 
 ---
 
-### 3. Using @Workspace
+### 3. @Workspace を使う
 
-In the previous section you saw how to configure and enable Amazon Q Workplace indexing. Here we will dive a little deeper into how it works. As of writing this is still a beta feature, so bear that in mind.
+前節では、Amazon Q Workplaceのインデックスを設定し、有効にする方法について説明しました。
+ここでは、その仕組みについてもう少し深く掘り下げていきます。
+この記事を書いている時点では、これはまだベータ版の機能ですので、その点はご留意ください。
 
-**Stop/Start**
+**停止／開始**
 
-When you are working with your projects, you might encounter occasional errors when using @workspace. One of the most common issues I have seen is where as the local project files change (perhaps due to git checkout) @workspace can sometimes provide incorrect guidance based on files that are no longer there. When this happens, I stop and restart the service. To do this:
+プロジェクトで作業をしていると、@workspaceを使用する際にエラーが発生することがあります。
+よくある問題の1つは、ローカルプロジェクトのファイルが変更されると（おそらくgitのチェックアウトが原因）、@workspaceがもう存在しないファイルに基づいて間違ったガイダンスを提供することがあります。
+このような場合は、サービスを停止して再起動します。
+そのためには次の手順を実施します。
 
-1/ From the Amazon Q menu on the bottom of the VSCode status bar , select "Open Settings"
-2/ Navigate to the "Amazon Q: Workspace Index"
-3/ Untick the box, wait a few seconds, and then re-tick the box.
+1/ VSCodeステータスバーの下にあるAmazon Qメニューから「設定を開く」を選択します
+2/ 「Amazon Q: Workspace Index」に移動します
+3/ ボックスのチェックを外し、数秒待ってから再度チェックを入れます
 
-**Clear out cache**
+**キャッシュをクリアする**
 
-Occasionally stopping and restarting the Workspace Index will not resolve the issue. Opening the logs will show error messages (a common one I have seen is a Fais index failure). When this happens, it is often best to delete the cache and get Amazon Q to reindex. You can find the location of the cache by looking at the Amazon Q logs. Here is an extract from mine:
+時折、ワークスペースインデックスを停止し、再起動しても問題は解決しません。
+ログを開くとエラーメッセージが表示されます（私がよく見たのはFais index failureです）。
+このような場合、キャッシュを削除し、Amazon Qにインデックスを再作成してもらうのが最善です。
+Amazon Qのログを見ればキャッシュの場所がわかります。
+以下は私のログからの抜粋です。
 
 ```
 [Info  - 16:02:49] bm25 indexing complete, time: 0.92ms
@@ -259,135 +305,176 @@ Occasionally stopping and restarting the Workspace Index will not resolve the is
 [Info  - 16:02:50] Vector index saved to /Users/ricsue/.aws/amazonq/cache/cache/eee4a16ba650a3c2a0cab92dd904c065feb5976341f32c94cd0be7fe5fcdd94a-0.9-VSCode.index
 [Info  - 16:41:47] Adding file to vector index: /Users/ricsue/Projects/amazon-q/workshop/q-developer-workshop-supporting-repo/q-developer-workshop-demo-code/.qdeveloper/MY-PREFERENCES.md
 ```
-From this we can see that **~/.aws/amazonq/cache/** is the location where the Workspace Index will generate these indexes. These can be deleted as the index process will recreate them.To do this:
 
-* Disable the Amazon Q: Workplace Index using the previous step
-* From the terminal, locate the directory where the indexes are created and then delete them
-* Re-enable the Workspace Index
+このことから、 **~/.aws/amazonq/cache/** がワークスペースインデックスがこれらのインデックスを生成する場所であることがわかります。
+これらは、インデックスプロセスが再作成するので、削除できます。
 
-The indexes will be recreated automatically, and you can verify this by checking in the logs.
+* 前の手順で「Amazon Q: Workplace Index」を無効にします
+* ターミナルから、インデックスが作成されているディレクトリを探し、削除します
+* ワークスペースインデックスを再度有効にします
 
-**Working with git branches**
+インデックスは自動的に再作成され、ログで確認することができます。
 
-One thing to be wary of is that if you are frequently checking out different branches of your code repository, the Workspace Index might not have updated. This means that code suggestions might still refer to code that was in previous branches, which will give you potentially incorrect output. After you checkout a branch, stop/start the index process.
+**gitのブランチを扱う**
 
----
-
-### 4. Context
-
-Understand context is critical in how to understand and influence how Amazon Q Developer can help you. This section explores the differnt ways that Amazon Q Developers understand what you are trying to make it do. Context is everything and key to improving your success with tools like Amazon Q Developer.
-
-**Modality**
-
-It is important to understand that how Amazon Q gets context is dependant on how you are using it. If you are using the inline editing modality, the characteristics of what Amazon Q needs to do (be very fast, and provide instance responses) means that the context is very small (the prompt itself). If you are in the chat interface, then the responses do not have to be immediate, and so the context can be larger. Bear this in mind as you think about how you use the different modalities within Amazon Q.
-
-**Import statements**
-
-You can influence the suggestions that Amazon Q provides you by adding the libraries you want to use at the start of your code. For example, if I ask Amazon Q to create code for a python web framework, with a blank project file, I might get Flask, FastAPI, or DJango. If I first add 'from flask import Flask' at the top of the page, it will almost always provide me with Flask code*
-
-*I say nearly, as it is impossible to be 100% certain with non deterministic systems
-
-**Open Files or tabs**
-
-The first place that Amazon Q looks for context when using Chat interface is the files you have open within the IDE. It can be a good idea to just keep the key files open you need to help focus Amazon Q.
-
-In addition, Amazon Q is smart enough to understand that important context can be obtained from key files. If you are working with Java projects, it will read your pom.xml for example.
-
-**Small files**
-
-Because context sizes are so important, and they are of a finite size, you might find better results by breaking down your project into smaller files. This will allow those files to reside within the context space available.
-
-**Project workspace**
-
-You can use Amazon Q Developer Workspace Index to index your project workspace, which enables all the files within your projects to be accessable as context. This is useful if you need to refer to multiple files when asking a question.
-
-One thing to be aware of though if you are using a mono repo. If you are wanting to work in a project (for example Python) but have a lot of other code in your workspace the responses you can get from Amazon Q may not be what you expect. You might get Javascript or Python despite the project you are working in being in the other language. The best way to tackle this is to try and setup your IDE so that it is just working in a subfolder of your mono repo and avoid files within your local workspace that are a distraction.
-
-**Customisation**
-
-Amazon Q Developer allows you to provide your own code to help influence code suggestions. This is currently only available with the Professional Tier, and not in scope within this workshop. It is good to know that this capability is very powerful, allow developers to have a number of customised models that they can use depending on the different custom code they want to use.
-
-Check out [this video](https://www.youtube.com/watch?v=dsjXb4TvfPg) for more info.
-
-**Scaffolding**
-
-We can help steer the output of how Amazon Q works by providing scaffolds. There are two ways we can do this:
-
-1/ Provide details in a markdown doc in our project directory, and refer to these in our prompts
-2/ Provide them directly within the prompt itself
-
-You will see in this repo an example of a scaffold that we will be using during this tutorial ([here](/specification/spec.md)). These will be different based on criteria such as programming languages you are using, frameworks, your own personal preferences and more. The key here is that they help you tailor the output of Amazon Q Developer.
-
-When using /dev, you can reference these files within the prompt to help scaffold the code that is created.
+注意しなければならないのは、コードリポジトリの異なるブランチを頻繁にチェックしている場合、ワークスペースインデックスが更新されていない可能性があるということです。
+つまり、コードの候補が以前のブランチにあったコードを参照したままになっている可能性があり、間違った出力をする可能性があるということです。
+ブランチをチェックアウトしたら、インデックス処理を停止/開始します。
 
 ---
 
-### 5. When your prompts don't work
+### 4. コンテキスト
 
-Occasionaly you will enter a prompt and receive the following response:
+コンテキストを理解することは、Amazon Q Developerがどのようにあなたを助けることができるかを理解し、影響を与える方法において非常に重要です。
+この節では、Amazon Q Developerがあなたがやろうとしていることを理解するさまざまな方法を探ります。
+コンテキストはすべてであり、Amazon Q Developerのようなツールで成功するための鍵です。
+
+**モダリティ**
+
+Amazon Qがどのようにコンテキストを取得するかは、どのように使用するかによって異なることを理解することが重要です。
+インライン編集モダリティを使用している場合、Amazon Qが必要とする特性（非常に速く、インスタンス応答を提供する）は、コンテキストが非常に小さい（プロンプト自体）ことを意味します。
+チャットインターフェイスを使用している場合、応答は即時である必要はないので、コンテキストはより大きくなります。
+Amazon Qの中で異なるモダリティをどのように使用するか考えるとき、このことを覚えておいてください。
+
+**ステートメントのインポート**
+
+コードの最初に使いたいライブラリを追加することで、Amazon Qが提供する提案に影響を与えることができます。
+たとえば、空白のプロジェクトファイルでPythonのWebフレームワークのコードを作成するようにAmazon Qに依頼すると、Flask、FastAPI、あるいはDjangoが表示されるかもしれません。
+もし最初に `from flask import Flask` をページの一番上に追加すれば、ほとんどの場合Flaskのコード[^flask]を提供してくれるでしょう。
+
+[^flask]: 非決定論的なシステムで100％の確証を得ることは不可能なので、私は「ほぼ」確実だと言っています。
+
+**ファイルまたはタブを開く**
+
+Amazon QがChatインターフェイスを使用する際にコンテキストを探す最初の場所は、IDE内で開いているファイルです。
+Amazon Qを集中させるために必要なファイルだけを開いておくのは良い考えです。
+
+加えて、Amazon Qは賢いので、重要なコンテキストがキーファイルから得られることを理解しています。
+Javaプロジェクトで作業している場合、たとえばpom.xmlを読み込みます。
+
+**小さいファイル**
+
+コンテキストのサイズは非常に重要であり、そのサイズには限りがあるため、プロジェクトを小さなファイルに分割したほうがよい結果が得られるかもしれません。
+そうすることで、それらのファイルを利用可能なコンテキストスペース内に置くことができるようになります。
+
+**プロジェクトワークスペース**
+
+Amazon Q Developer Workspace Indexを使用すると、プロジェクトのワークスペースにインデックスを付けることができます。
+これは、質問をする際に複数のファイルを参照する必要がある場合に便利です。
+
+モノリポジトリを使っている場合、1つ注意しなければならないことがあります。
+あるプロジェクト（たとえばPython）で作業したくても、ワークスペースに他のコードがたくさんある場合、Amazon Qから得られるレスポンスは期待通りではないかもしれません。
+あなたが作業しているプロジェクトが他の言語で書かれているにもかかわらず、JavaScriptやPythonが表示されるかもしれません。
+これに対処する最善の方法は、IDEをモノリポジトリのサブフォルダで作業するようにセットアップし、ローカルのワークスペース内に邪魔なファイルを置かないようにすることです。
+
+**カスタマイズ**
+
+Amazon Q Developerでは、コードの提案に影響を与えるために独自のコードを提供することができます。
+これは現在Professional Tierでのみ利用可能であり、今回のワークショップの対象ではありません。
+この機能は非常に強力で、開発者が使用したいさまざまなカスタムコードに応じて使用できる多くのカスタマイズモデルを持つことができます。
+
+詳しくは[このビデオ](https://www.youtube.com/watch?v=dsjXb4TvfPg)をご覧ください。
+
+**スキャフォールド**
+
+私たちは、スキャフォールドを提供することで、Amazon Qがどのように機能するかというアウトプットの舵取りを助けることができます。
+これには2つの方法があります。
+
+1/ プロジェクトディレクトリのMarkdownドキュメントに詳細を記述し、プロンプトでそれを参照する。
+2/ プロンプト自体に直接記述する。
+
+このリポジトリには、このチュートリアルで使用する雛形の例があります（[ここ](/specification/spec.md)）。
+これらは、使用しているプログラミング言語、フレームワーク、個人的な好みなどの基準によって異なります。
+ここで重要なのは、Amazon Q Developerの出力を調整するのに役立つということです。
+
+/dev を使用する場合、プロンプト内でこれらのファイルを参照することで、作成されるコードのスキャフォールドを作ることができます。
+
+---
+
+### 5. プロンプトが機能しないとき
+
+時折、プロンプトを入力すると、次のような応答が返ってきます。　
 
 ![Not accepting prompt](/images/q-vscode-context.png)
 
-It can sometimes be a little random when this happens, so here are a few tips to help you resolve this issue:
+そのため、この問題を解決するためのヒントをいくつかご紹介します。
 
-* stay within the same 'conversation' as Amazon Q retains memory and context, and you are less likely to encounter this issue if it is part of a longer conversation
-* change the order of the words - sometimes you might need to revise your prompt, removing potentially confusing words
-* try a different prompt - you can keep the same intention but try using completely different words
+* Amazon Qは記憶とコンテキストを保持するため、同じ「会話」内にとどまり、より長い会話の一部であれば、この問題に遭遇する可能性は低くなります。
+* 単語の順序を変える - 場合によっては、プロンプトを修正し、混乱させる可能性のある単語を削除する必要があるかもしれません。
+* 別のプロンプトを試す - 同じ意図のまま、まったく別の単語を使ってみることもできます。
 
-In most cases these will resolve your issues.
-
----
-
-### 6. Chat interface
-
-When using the Chat interface, there are some things you should be aware of to help improve your success when working with it.
-
-**Max size**
-
-You can enter a maximum of 4000 characters into the chat interface. Bear this in mind if you are using the integration with the VSCode menu to send highlighted code to the Amazon Q chat interface (Amazon Q > Send to Prompt). If you are working on a particularly large file, you might exceed your limit and have no space for a prompt. You will notice that there is a counter underneath the chat interface to help you know how close you are getting to your limit.
-
-**Conversation history**
-
-As you work back and forth in the Amazon Q chat interface (aka CHat Orientated Programming,or CHOP), under the covers Amazon Q is retaining a history of the conversation and retains context. Whilst it may be tempting to close the chat tab, or open new ones, maintaining this context can be key to getting better responses.
-
-You can clear the conversation history by using the /clear command. Use this if you feel that the conversation has run its course, or has become circular.
-
-**Chat interface Tabs**
-
-You can have a maximum of ten chat windows currently.
-
-**Copy and Pasting code**
-
-When Amazon Q produces code in the chat interface, you will notice that there are two icons at the bottom of any code block which allow you to COPY the code into the clipboard, or INSERT INTO CURSOR, which will try and PASTE the code where your cursor is. The caveat here is that the cursor needs to be within a file in the IDE - it will not send that into the Terminal within VSCode or anywhere else.
-
-Using these two buttons provides a simple and quick way of getting code from the chat interface and into your code.
-
-**View and Apply Diff**
-
-In recent updates to the Amazon Q plugin, where code suggestions are updates to existing code you will notice two other buttons appear - VIEW DIFF and APPLY DIFF. What these do is allow you to directly view the code differences between what you have and what the Amazon Q chat output is suggesting. You can then use the APPLY DIFF to automatically update the content.
+ほとんどの場合、これらで問題は解決します。
 
 ---
 
-### 7. Amazon Q Developer Agents 
+### 6. チャットインターフェイス
 
-Amazon Q Developer Agents are powerful capabilities of Amazon Q Developer that automate the tasks of creating or updating software. There are a few things you should know before using this:
+チャットインターフェイスを使用する際、いくつかの注意点があります。
 
-* limited quota - you have a limited number of quota for using agents (/dev, /test, /doc, /review, etc), so you should use it wisely. If you are using Free Tier (Builder ID) then you will have five invocations per month.
-* refine output from /dev - when you use /dev you have the possibility of providing feedback that will regenerate the code. This is not part of your service quota and so you should review carefully the initial output of /dev, and then use the "Provide Feedback and Regenerate" button to provide any refinements or updates you need. You can only do this three times though.
-* use scaffolding - we mentioned scaffolding previously, which is a very helpful technique to ensure consistency in the output you get from /dev
-* use cases - there are many use cases that are a good fit for /dev, and you will come to intuitively know when /dev vs other Amazon Q modalities are the right fit for what you are trying to do.
+**最大サイズ**
 
-We will be using /dev later in this workshop, so you will get to see some of this in action.
+チャットインターフェースに入力できる文字数は最大4000文字です。
+VSCode メニューとの統合を使用して、ハイライトされたコードを Amazon Q チャットインターフェースに送信する場合、この点に注意してください (Amazon Q > Send to Prompt)。
+特に大きなファイルで作業している場合、制限を超えてしまい、プロンプトのためのスペースがなくなってしまうかもしれません。
+チャットインターフェースの下にカウンターがあり、制限にどのくらい近づいているかを知ることができます。
+
+**会話の履歴**
+
+Amazon Qのチャットインターフェース（別名CHat Orientated Programming、CHOP）でやり取りをしている間、Amazon Qは会話の履歴を保持し、コンテキストを保持しています。
+チャットタブを閉じたり、新しいタブを開きたくなるかもしれませんが、このコンテキストを維持することが、より良い回答を得るための鍵となります。
+
+/clearコマンドで会話履歴を消去できます。
+会話が一巡したり、回りくどくなったと感じたら、このコマンドを使ってください。
+
+**チャットインターフェイスのタブ**
+
+現在、最大10個のチャットウィンドウを持つことができます。
+
+**コードのコピペ**
+
+Amazon Qがチャットインターフェースでコードを作成するとき、コードブロックの下に2つのアイコンがあることに気づくでしょう。
+COPYはコードをクリップボードにコピーし、INSERT INTO CURSORは、カーソルのある場所にコードをPASTEしようとします。
+ここでの注意点は、カーソルはIDE内のファイル内にある必要があるということです - VSCode内のターミナルや他の場所には送られません。
+
+これら2つのボタンを使うことで、チャットインターフェースからコードをあなたのコードに取り込むシンプルで素早い方法を提供します。
+
+**差分を見て適用する**
+
+Amazon Qプラグインの最近のアップデートでは、コードサジェストが既存のコードのアップデートである場合、VIEW DIFFとAPPLY DIFFという2つのボタンが表示されます。
+これらは、あなたが持っているものとAmazon Qのチャット出力が提案しているものとのコードの違いを直接見ることができます。
+その後、自動的にコンテンツを更新するためにAPPLY DIFFを使用できます。
 
 ---
 
-### 8. Code Reference
+### 7. Amazon Q Developer Agents
 
-One of the questions you might be asking yourself is as Amazon Q Developer provides code suggestions, how much of that code might come from the open source projects used to train the large language models behind it. Amazon Q Developer allows you to configure this - you can either explicityly turn off any code suggestions that match code from open source repositories, or you can leave it enabled, and Amazon Q Developer will notify you. In practice I have found that I rarely encounter this.
+Amazon Q Developer Agentは、ソフトウェアの作成やアップデートを自動化するAmazon Q Developerの強力な機能です。
+これを使う前に知っておくべきことがいくつかあります。
 
-Check out [this very short video](https://www.youtube.com/shorts/Fmn37wGQUY8) that shows what this looks like when it does happen.
+* 制限されたクォータ - エージェント（/dev、/test、/doc、/review など）を利用するためのクォータには限りがあるため、賢く利用する必要があります。Free Tier (Builder ID) を使用している場合、1ヶ月に5回の起動が可能です。
+* /dev からの出力を絞り込む - /dev を使用すると、コードを再生成するフィードバックを提供する可能性があります。
+これはサービスのクォータには含まれないので、/devの初期出力を注意深く確認し、「Provide Feedback and Regenerate」ボタンを使って必要な改良や更新を行う必要があります。ただし、これを実行できるのは3回までです。
+* スキャフォールドを使用する - スキャフォールドについては以前触れましたが、これは /dev から得られるアウトプットの一貫性を確保するのに非常に役立つテクニックです。
+* ユースケース - /dev に適したユースケースはたくさんあり、あなたがやろうとしていることに /dev と他の Amazon Q モダリティのどちらが適しているか、直感的に分かるようになるでしょう。
 
-### Complete!
+このワークショップの後半で /dev を使うので、その一部を実際に見ることができるでしょう。
+
+---
+
+### 8. コードリファレンス
+
+Amazon Q Developerがコードサジェストを提供するとき、そのコードのどれだけが、その背後にある大規模な言語モデルを訓練するために使用されるオープンソースプロジェクトから来るかもしれないという疑問があるかもしれません。
+Amazon Q Developerでは、これを設定できます - オープンソースリポジトリからのコードにマッチするコードサジェストを明示的にオフにするか、または有効にしたままにしておくことができ、Amazon Q Developerが通知します。
+実際には、このような事態に遭遇することはほとんどありません。
+
+この[非常に短いビデオ](https://www.youtube.com/shorts/Fmn37wGQUY8)をご覧ください。
+これが実際に起こったときにどのように見えるかを示しています。
+
+### 完了です！
+
+さて、あなたはAmazon Q Developerプラグインを使いこなせるようになりました。
+そして今こそ、それで何が達成できるかを確認するときです。
+次のセクション[問題の分解](04-breaking-down-problems.md)に進んでください。
 
 Ok, you are now up to speed with the Amazon Q Developer plugin, and it is time to see what you can achieve with it. Head over to the next section [Breaking down problems](04-breaking-down-problems.md).
 

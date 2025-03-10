@@ -1,57 +1,72 @@
 ![Amazon Q Developer header](/images/q-vscode-header.png)
 
-## Building our application - Breaking down problems into smaller tasks
+## アプリケーションの構築 - 問題を小さなタスクに分解する
 
-In this lab, we are going to be practicing a key skill that you will help you be more successful in getting good output from generative AI coding assistants like Amazon Q Developer. That skill is breaking down larger problems into smaller tasks that we can get Amazon Q Developer to help us with. Generative AI is very powerful, but we need to understand how to get the most of that capability. It is tempting to ask these tools to help solve our problems at a very high level (build me an app that does x or y) but experience shows that when the underlying models have too much scope with too little direction, they can provide very broad guidance which might not be helpful. In the worst case, they can hallucinate and take you off track completely.
+このステップでは、Amazon Q Developerのような生成AIコーディングアシスタントから良いアウトプットを得るために役立つ重要なスキルを練習します。
+そのスキルとは、大きな問題をAmazon Q Developerに助けてもらえるような小さなタスクに分解することです。
+生成AIは非常にパワフルですが、その能力を最大限に引き出す方法を理解する必要があります。
+このようなツールに、私たちの問題を非常に高いレベルで解決してくれるよう（xまたはyを行うアプリを作ってくれ）頼みたくなるものですが、経験上、基礎となるモデルの範囲が広すぎて方向性が定まらないと、役に立たないかもしれない非常に広範なガイダンスを提供してしまうことがあります。
+最悪の場合、ハルシネーションを起こして完全に軌道から外れてしまうこともあります。
 
-**Overview**
+**概要**
 
-In this lab we are going to take a look at how we might break down a bigger ask into smaller, more actionable tasks. We will practice breakdowing down problems into more actional tasks. In the next 20 mins, we will get into groups of 2-3 and then do the following:
+このステップでは、より大きな課題を、より小さく、より実行可能なタスクに分解する方法を見ていきます。
+問題をより行動的なタスクに分解する練習をします。
+次の20分で、2-3人のグループになり、次のことを行います。
 
-1. We will take the following high level requirements and then break down it down into specific tasks.
+1. 次のようなハイレベルの要件を、具体的なタスクに分解していきます。
 
-> The business has asked us to create a customer feedback application that we can collect customer via an online web application. The application should allow the business to create customer survey forms, and then share these with people to complete. Only the people who create customer feedback forms should be able to view them. 
+> ビジネスサイドから、オンラインウェブアプリケーションを通じて顧客を収集できる、顧客フィードバックアプリケーションの作成を依頼されました。
+> このアプリケーションは、ビジネスサイドが顧客調査フォームを作成し、顧客が記入できるように共有できるようにする必要があります。
+> 顧客フィードバックフォームを作成した人だけが回答を閲覧できるようにします。
 
-Take this business request, and:
+このビジネスサイドからの依頼を受けて、次のタスクを行います。
 
-2. Within your groups, break down this requirement into a series of tasks how you might do this if you were building an applicaiton yourself.
+2. グループ内で、この要件を、もしあなたが自分でアプリケーションを作るとしたら、どのようにするかを考えて、一連のタスクに分解してください。
 
-3. As you break down each task, write down a detailed statement (prompt).
+3. 各タスクを分解しながら、詳細な文章（プロンプト）を書き出します。
 
-4. Review the order of the tasks and the prompts - are they detailed enough? how would you make them more specific?
+4. タスクとプロンプトの順番を見直します。 - どうすればもっと具体的になりますか？
 
-5. Capture nouns (the things your application will need) and verbs (the kinds of actions). This about the inputs, as well as the outputs
+5. 名詞（アプリケーションが必要とするもの）と動詞（アクションの種類）を捕捉します。これは入力と出力について考えるということです。
 
+ワークショップのホストが時間を管理し、20分後にアウトプットを確認します。
 
-The workshop host will manage time keeping, and after 20 minutes we will review the output.
-
-> **Additional reading** I recently wrote a blog post that puts these into practice which you can read about in the post, [How I built an arcade scrolling game in a day with generative AI](https://community.aws/content/2oAoQyCZWhRMpHWecW6dGykzP0T/how-i-built-an-arcade-scrolling-game-in-one-day?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el)
-
----
-
-**Understanding how to ask Amazon Q Developer questions**
-
-As you explore the world of generative AI developer tools, one thing you will need to think about is that in order to get useful output and results, you need to ensure that you provide tools like Amazon Q Developer, the right input. What do I mean?
-
-The "Prompt" or "Chat Interface" is how tools like Amazon Q Developer know what they need to do, in the same way that when you are using a search engine, you enter terms you want to search for. It is tempting to treat these chat interfacts like search, but that will lead to poor results. Here are some things to think about that will improve the output from tools like Amazon Q Developer.
-
-* Provide as much information as possible - rather than say "Add a README" as a prompt, a better one would be "Create a README.md file for this project that will explain what this project does, what the key files are, and how to run it."
-* If the output is not what you expect, you can use follow up prompts to help steer and improve the output. Using terms like "Can you provide a more detailed response" or "Can you give a code example" are good ways you can maintain the context and memory of what has been asked before, and refine the output
-* If the ouput is good, use the thumbs up and down to provide feedback - this will ensure that the responses improve over time
-* If the output is bad, use the thumbs down and use the additional link to provide feedback - this will help ensure that you do not get the same poor results back
-* Rephrase the question - sometimes, the  output you get will not be great. This is part of the nature of how these tools work. Sometimes, it is better to reword or re-think your prompt and try again
-* Remember these tools are non deterministic - it is easy to forget that every time you run the same prompt, you are likely to get different results and output. That is the nature of these tools - it is a feature not a bug
-* Debug errors by copying important parts of error messages - one of the powerful ways these tools can help you improve your productivity is by reducing context switching and allowing you to stay within your code editor whilst troubleshooting and fixing errors. Just grab the most peritent part of the error, and then send it to the Amazon Q Developer Chat panel and ask questions like "How do I resolve this error", or "What does this mean". 
+> **補足** 私は最近、これらを実践したブログ記事を書きました。
+> この記事については、[How I built an arcade scrolling game in a day with generative AI](https://dev.to/aws/how-i-built-an-arcade-scrolling-game-in-one-day-ek8)をご覧ください。
 
 ---
 
-**Managing your prompts**
+**Amazon Q Developerへの質問方法を理解する**
 
-It is important to get into **"Daily habits"** of using Amazon Q that will quickly help you learn what works well, and what does not. When I first started using Q I only used it occasionally, and it wasnt until I started using it daily that I better understood how to use the tool, and Amazon Q start producing much better output for me.
+生成AI開発者ツールの世界を探求する中で、1つ考えてもらいたいのは、有用なアウトプットや結果を得るためには、Amazon Q Developerのようなツールに適切なインプットを提供する必要があるということです。
+どういう意味でしょうか。
 
-Saving the prompts that work well for you is an important milestone that will help you start to get more consistently good output from Amazon Q. I used to use a makrdown doc, but now I am beginning to use a new tool created by an AWS Community Builder, Christian Bonzelete, called [Promptz](https://www.promptz.dev/). You can login and save your own prompts, as well as see what prompts others have created and try these out. This is very new so take a look and make sure you bookmark it and add your own prompts.
+「プロンプト」または「チャットインターフェース」は、Amazon Q Developerのようなツールが、検索エンジンを使っているときに、検索したい用語を入力するのと同じように、何をする必要があるかを知る方法です。
+このようなチャットインターフェイスを検索のように扱いたくなりますが、それは悪い結果につながります。
+ここでは、Amazon Q Developerのようなツールからのアウトプットを改善するために考えるべきことをいくつか紹介します。
+
+* できるだけ多くの情報を提供する -- プロンプトとして「READMEを追加してください」と言うよりも、「このプロジェクトが何をするのか、キーとなるファイルは何か、どのように実行するのかを説明するREADME.mdファイルをこのプロジェクトのために作成してください」と言った方がいいでしょう。
+* アウトプットが期待したものでなかった場合、フォローアップのプロンプトを使うことで、アウトプットを導き、改善できます。「より詳細な回答をお願いします」「コードの例を挙げてください」などは、前に質問されたことの文脈と記憶を維持し、アウトプットを洗練させる良い方法です。
+* アウトプットが良ければ、サムアップやサムダウンでフィードバックを提供する -- そうすることで、時間とともにレスポンスが向上していきます。
+* アウトプットが悪い場合は、サムダウンを使用し、フィードバックを提供するために追加のリンクを使用する -- そうすることで、同じような悪い結果が戻ってこないようにできます。
+* 質問を言い換えてみる -- ときに、アプトプットがあまり良くないときがあります。これは、これらのツールの性質の一部です。ときには、プロンプトを言い換えたり、考え直したりして、再挑戦する方がよいこともあります。
+* これらのツールは非決定論的であることを忘れないでください。同じプロンプトを実行するたびに、異なる結果や出力が得られる可能性が高いことを忘れがちです。それはこれらのツールの性質であり、バグではなく機能です。
+* エラーメッセージの重要な部分をコピーすることによってエラーをデバッグする - これらのツールがあなたの生産性を向上させることができる強力な方法の1つは、コンテキストスイッチングを減らすことによって、コードエディタ内にとどまりつづけながらトラブルシューティングやエラーを修正できます。エラーのもっとも重要な部分を選択して、Amazon Q Developerチャットパネルに送信して、「このエラーを解決するにはどうすればよいですか」または「これはどういう意味ですか」のような質問をするだけで良いのです。
 
 ---
-**Complete:** You have now had some practice breaking down problems into smaller tasks, and we can now proceed with the first part of building our application in [Part One](building-our-app-part-1.md)
+
+**プロンプトの管理**
+
+何がうまく機能し、何がそうでないかを素早く学ぶのに役立つ、Amazon Qを使う **「毎日の習慣」** を身につけることが重要です。
+Qを使い始めた当初はたまにしか使わなかったけれど、毎日使うようになって初めて、ツールの使い方をよりよく理解できるようになり、Amazon Qは私にとってはるかに良いアウトプットを生み出すようになりました。
+
+自分にとって効果的なプロンプトを保存しておくことは、Amazon Qからよりコンスタントに良いアウトプットを得るための重要なマイルストーンとなります。
+以前はMarkdownドキュメントを使っていましたが、今は [Promptz](https://www.promptz.dev/) という AWS Community Builder の Christian Bonzelete が作成した新しいツールを使い始めています。
+ログインして自分のプロンプトを保存したり、他の人が作成したプロンプトを見たり、試したりできます。
+これはとても新しいので、ぜひ見て、ブックマークして自分のプロンプトを追加してみてください。
+
+---
+**完了** これで、問題をより小さなタスクに分解する練習ができました。そして、[パート1](building-our-app-part-1.md)のアプリケーション構築の最初の部分に進めます。
 
 

@@ -1,66 +1,95 @@
 ![Amazon Q Developer header](/images/q-vscode-header.png)
 
-## Setting up, and getting starting with Amazon Q Developer
+## セットアップとAmazon Q Developerの利用開始
 
-We are now ready for the first hands on part of this lab, setting up the generative AI developer tooling we are going to be using. We are going to be using Amazon Q Developer, a next generation developer tool that provides you with in-line code suggestions and a chat interface to help your developer flow. This is installed into your IDE (VSCode and IntelliJ are supported) via a plugin. Once the plugin is installed, we need to login using something that is called a Builder ID account. This allows you to access the Free Tier of Amazon Q Developer, without the need for an AWS account. So we first need to set that up, and then install the Amazon Q Developer plugin.
+私たちは今、このワークショップの最初のハンズオンの準備ができました。
+Amazon Q Developerを使用します。
+Amazon Q Developerは次世代の開発者ツールで、インラインでのコード提案やチャットインターフェースを提供し、開発フローを支援します。
+Amazon Q Developerはプラグインを介してIDE（VSCodeとIntelliJがサポートされています）にインストールされます。
+プラグインをインストールしたら、Builder IDアカウントと呼ばれるものを使用してログインする必要があります。
+これにより、AWSアカウントなしでAmazon Q DeveloperのFree Tierにアクセスできるようになります。
+そのため、まずBuilder IDを設定し、Amazon Q Developerプラグインをインストールする必要があります。
 
-**Creating your Builder ID**
+**Builder IDの作成**
 
-(If you already have a Builder ID, you can skip this step)
+(すでにBuilder IDを持っている場合、この手順はスキップできます)
 
-[Creating a Builder ID](https://s12d.com/builder-id) is the first step in being able to use the Amazon Q Developer plugin. All you need is a valid email address to create a Builder ID. Head over to the [Builder ID page](https://s12d.com/builder-id) and click on the "Sign in with Builder ID". This will pop up a browser window where you can now create your Builder ID, using your email address. 
+[Builder ID の作成](https://s12d.com/builder-id) は、Amazon Q Developer プラグインを使用できるようにするための最初のステップです。
+Builder IDを作成するために必要なのは、有効なメールアドレスだけです。
+[Builder IDページ](https://s12d.com/builder-id)に移動し、[Sign in with Builder ID]をクリックします。
+ブラウザウィンドウが表示され、メールアドレスを使用して Builder ID を作成できます。
 
-You can follow these screenshows to see the flow. After accessing the Builder ID page, you will need to provide an email address (1) and then create an alias (Your Name) (2). You will be sent an email verification which you will need to enter (3), and the email should only take a few moments to arrive (but check your SPAM folder just in case)(4)
+以下のスクリーンショットを参考に手順を確認してください。
+Builder IDページにアクセスした後、電子メールアドレスを入力し(1)、エイリアス（Your Name）を作成する必要があります(2)。
+確認メールが送信されるので、それを入力する必要があります(3)。
+メールは数分で届くはずです（ただし、念のためSPAMフォルダをチェックしてください）(4)
 
-![creation of a builder id flow](/images/q-vscode-builderid-1.png)
+![Builder IDの作成手順](/images/q-vscode-builderid-1.png)
 
-Once you have received that code, enter it to validate your account (5), which should provide confirmation (6). You will be returned back to the initial screen, where you can now enter your email address (7) and password (8) and you should then see the Builder Profile page (9), where you can view your profile.
+このコードを受け取ったら、それを入力してアカウントを検証し(5)、確認が行われます(6)。
+初期画面に戻り、Eメールアドレス(7)とパスワード(8)を入力すると、ビルダープロフィールのページ(9)が表示されます。
 
-![completion of the builder id](/images/q-vscode-builderid-2.png)
+![Builder ID取得完了](/images/q-vscode-builderid-2.png)
 
-When you hear the term Builder ID when working with AWS services, this is the account they are referring to. It is separate from the AWS account, but is used by a number of services to provide access to those who want to try and AWS without the need for a full AWS account.
+AWSのサービスを利用する際にBuilder IDという言葉を耳にすることがあると思いますが、これはそこで言及されているアカウントです。
+AWSアカウントとは別のものですが、AWSのフルアカウントを必要とせずにAWSを試したい人にアクセスを提供するために、多くのサービスで使われています。
 
+> **Builder IDからログアウトする** ビルダー ID からログアウトする必要がある場合があります。そのためには、[Buildr ID プロフィールページ](https://profile.aws.amazon.com/#/profile/details) に移動し、左上の **Sign Out** ボタンを使用してください。これをクリックすると、サインオンページに戻ります。
 
-> **Logging out of your Builder ID** Sometimes you might need to log out of your Builder ID, and in order to do this you should head over to your [Builder ID Profile page](https://profile.aws.amazon.com/#/profile/details?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el) and use the **Sign Out** button on the top left. Clicking on this will return you to the sign on page.
+**Amazon Q Developerのインストール**
 
+Builder ID プロファイルができたので、Amazon Q Developer プラグインをインストールしましょう。
+Extensionsのサイドバーから、アイコンをクリックしてExtensions Marketplaceを表示します。
+「Amazon Q Developer」で検索すると、Amazon Q Developerプラグインが見つかるはずです(1)。
+執筆時点での最新バージョンはv1.37.0です。
+このプラグインは非常に定期的にアップデートされるので、自動アップデートを利用するか、定期的にチェックインして週単位で行われている改善を利用するようにしてください。
 
-**Installing Amazon Q Developer**
+![Amazon Q Developerプラグインのインストール](/images/q-vscode-install-1.png)
 
-Now that we have our Builder ID profile, lets install the Amazon Q Developer plugin. From the Extensions side bar, click on the icon to view the extensions marketplace. Search for "Amazon Q Developer" and you should be able to locate the Amazon Q Developer plugin (1). As of writing the latest version is v1.37.0. This is updated on a very regular basis, so make sure you either use the auto update, or check in regularly to take advantage of the improvements that are being made on a weekly basis.
+インストールが正常に完了すると、いくつかのものが表示されます。
+まず、左側のサイドバーに新しいQのアイコンが表示され(1)、下にはAmazon Qのステータスバーが×印で表示されます(2)
 
-![Installing the Amazon Q Developer plugin](/images/q-vscode-install-1.png)
+![Amazon Q Developerが無事にインストールされた](/images/q-vscode-install-2.png)
 
-If the installation has been completed successfully, we will see a couple of things. First we will see a new Q icon on the left hand side bar (1), and you should also the the Amazon Q status bar at the bottom, with a X (2)
+この×印をクリックすると、現在サインインしていないことを示すメニューがポップアップ表示されるはずです。次にそれを実行します。
 
-![Successfull installation of Amazon Q Developer](/images/q-vscode-install-2.png)
+**Amazon Q Developerにサインインする**
 
-If you click on that, you should see a menu pop up that shows that you are currently not signed in. We will do that next.
+さて、[Builder ID](https://s12d.com/builder-id) を作成し、Amazon Q Developer プラグインをインストールしたので、最後のステップとして、その [Builder ID](https://s12d.com/builder-id) を使ってログインします。
 
-**Signing into Amazon Q Developer**
+先ほどのスクリーンショットから、QアイコンをクリックするとAmazon Qメニューが表示されます(3)。
+それをクリックすると、Amazon Q Developerのログインオプションが表示されます(4)。
+2つの選択肢がありますが、「Use with Pro Licence」は無視して、「Use for Free」のボックスをクリックし、「Continue」をクリックします。
+ポップアップボックスが表示されます(5)。
+参照コードをメモし、「ブラウザに進む」をクリックすると(6)が表示されます。
+前のステップと同じコードであることを確認し、「Confirm and Continue」をクリックします。
+問題がなければ、「Allow Access」をクリックし、成功すれば最後の画面(8)が表示されます。
 
-Now that we have created our [Builder ID](https://s12d.com/builder-id), and installed the Amazon Q Developer plugin, we can take the last step which is to log in using that [Builder ID](https://s12d.com/builder-id). 
+> **Note!** VSCodeの左下に、Amazon Qプラグインがあなたのウェブページを開いたという情報パネルがあることにお気づきかもしれません。ログインが完了すると自動的に閉じます。
 
-From the previous screenshot, if we click on the Q icon it will bring up the Amazon Q menu (3). When we click on that, we will see the login options for Amazon Q Developer (4) - there are two, we will ignore the "Use with Pro Licence" and click on the "Use for Free" box and then click on Continue. This will bring up a pop up box (5). Take a note of the reference code, and then click on Proceed to Browser, which will bring up (6). Review that the code is the same as for the previous step, and then click on "Confirm and Continue", which will then bring up (7) to let you review the permissions that the Amazon Q Developer will need to work. If you are happy, click on "Allow Access" and if successfull, you will see the final screen (8) which you can close.
+![Amazon Q DeveloperにBuilder IDを使ってログインする](/images/q-vscode-signin-1.png)
 
-> **Note!** You might notice in the bottom left corner of VSCode the information panel that says that the Amazon Q plugin has opened up your web page. This will close automatically once the login has completed
+ログインすると、いくつかのことがわかります。
+まず、左側のQパネルがチャットウィンドウに変わります。
+また、下部にあるAmazon Qのステータスバーが "X Amazon Q "から"|> Amazon Q "に変わっていることに気づくでしょう。
+これをクリックすると、AWS Builder IDを使ってAmazon Qにログインしていることがわかります。
 
-![Signing into Amazon Q Developer using your Builder ID](/images/q-vscode-signin-1.png)
+![サインインの完了](/images/q-vscode-signin-2.png)
 
-Once you have logged in you will notice a few things. First the Q panel on the left hand side will be replaced with a chat window. You will also notice that at the bottom, the Amazon Q status bar will have changed form "X Amazon Q" to "|> Amazon Q". When you click on that, you will also see that you are now logged into Amazon Q using your AWS Builder ID.
+これでセットアップはすべて完了し、準備は整いました。
 
-![Sign in complete](/images/q-vscode-signin-2.png)
+> **ログアウト** ログアウトしたい場合は、Amazon Qのステータスバーのリンクをクリックしてメニューを表示し、「サインアウト」オプションを選択するだけです。その後、上記のプロセスを繰り返して、必要に応じてサインインし直すことができます。
 
-We have now set up everything and are ready to go.
+**Amazon Q Developerの設定**
 
-> **Logging out** If you want to log out, all you need to do is click on the Amazon Q status bar link to bring up the menu, and then select the Sign Out option. You can then repeat the process above to sign back in as you need
+ワークショップを進める前に、Amazon Q Developerをどのように設定し、あなたの要件に合わせることができるかを説明する価値があります。
+左のアイコンバーの拡張機能アイコンから、Amazon Q Developerプラグインの横にある歯車をクリックすると、設定できる項目が表示されます。
+これは、後で変更したい場合に便利です。
+当面はこのままにしておきましょう。
 
-**Amazon Q Developer Settings**
+![Amazon Q Developerの設定](/images/q-vscode-settings-1.png)
+![Amazon Q Developerの設定](/images/q-vscode-settings-1b.png)
 
-Before we dive into the labs, it is worth going through how you can configure Amazon Q Developer and tailor it to your requirements. From the Extensions icon on the left icon bar, we can click on the cog wheel next to the Amazon Q Developer plugin, which will bring up the settings you can configure. This is handy to know incase you want to make changes later on. For the time being, we can leave this as is.
+これですべてのセットアップが完了したので、次のステップに進みます。
+次は「[Amazon Qの始め方を調べる](02-getting-started-with-q.md)」です。
 
-![Amazon Q Developer Settings](/images/q-vscode-settings-1.png)
-![Amazon Q Developer Settings](/images/q-vscode-settings-1b.png)
-
-
-
-Now that you have set everything up, we can proceed to the next step which is [exploring how to get started with Amazon Q](02-getting-started-with-q.md)

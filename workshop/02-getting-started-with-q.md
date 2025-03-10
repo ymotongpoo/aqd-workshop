@@ -1,94 +1,113 @@
 ![Amazon Q Developer header](/images/q-vscode-header.png)
 
-## Exploring Amazon Q Developer
+## Amazon Q Developerを使ってみる
 
-Like all developer tools, it is worth spending some time to explore and see how they work to really maximise the benefit to your productivity. In this section we will cover at a high level what Amazon Q Developer provides you with, but I would encourage you to explore.
+すべての開発者ツールと同様に、生産性を最大化するために、少し時間を費やしていろいろと試してみて、どのように機能するかを確認ことには価値があります。
+この節では、Amazon Q Developerが提供するものを大まかに説明しますが、ぜひみなさんもいろいろと試してみてください。
 
-**Amazon Q Developer menu options**
+**Amazon Q Developerメニューのオプション**
 
-When we click on the Amazon Q status bar link at the bottom of VSCode, we will see the following pop up. This provides you will access to Amazon Q Developer options, most of which you will not need whilst you are using it, but you will come back to do certain things. Let's go through what each of these options provides.
+VSCodeの下部にあるAmazon Qステータスバーのリンクをクリックすると、以下のポップアップが表示されます。
+このポップアップではAmazon Q開発者オプションにアクセスできます。
+それぞれのオプションが提供するものを見ていきましょう。
 
-![amazon q developer menu options](/images/amazon-q-developer-plugin-menu.png)
+![Amazon Q Developerメニューのオプション](/images/amazon-q-developer-plugin-menu.png)
 
-* Pause Auto-Suggestions (Currently Running) - Amazon Q Developer provides you with suggested code blocks and snippets whilst working directly in your code. You can turn off this behaviour by clicking on this link (you will notice that it will then change to Resume Auto-Suggestions, Currently Paused, and the Amazon Q icon in the bottom status bar will also change). Every developer is different, and some prefer to have this option disabled, others enabled, so you will need to see what feels best for you. When paused, you can still invoke Amazon Q Developer to provide in-line code suggestions, by using the VSCode shortcuts (OPTION + C). Speaking of keyboard short cuts, lets check those out
-* Open Code Reference Log - the underlying models that are used to power Amazon Q Developer use some open source code repositories, using Apache 2.0 and MIT licenced source files. Should code suggestions include portions from those projects, Amazon Q Developer will let you know by outputting this to the "Code Reference Log" which you can open by clicking on this menu option. When you click on this, you may see "Don't want suggestions that include code with references? Uncheck this option in Amazon Q: Settings". When using Builder ID you are not able to change this configuration, and the default option is to always include suggestions with code references. As you use Amazon Q Developer, check in here from time to time to see whether you are using code from those open source repositoires.
-* Try inline suggestions examples - this provides a quick tutorial to walk you through the basics of how to use Amazon Q Developer inline suggestions
-* Full Project Scan is now /review - this kicks off a /review of the current project. We will explore this in more detail later on in this tutorial
-* Open Chat Panel - this will open up the Amazon Q Developer chat panel if you close it
-* Send Feedback / Connect with us on GitHub / View Documentation - these options provide you with additional ways you can provide feedback if Amazon Q Developer is not working the way you think it should
-* Open Settings - will open the Amazon Q Developer plugin settings options (as covered above)
-* Sign Out (Connected as AWS Builder ID) - allows you to log out of your current session, with the identity displayed. During this lab, it will always be AWS Builder ID. 
-
----
-
-**Keyboard shortcuts**
-
-You can control how you invoke Amazon Q Developer via the various key shortcuts, including customising these to how you work.
-
-![keyboard shortcuts for Amazon Q Developer](/images/q-vscode-view-keyboard.png)
-
-One of the key short cuts to know when you are working in the inline editor, is the < and > arrows. These allow you to cycle through suggestions when you are prompted by Amazon Q Developer.
+* 自動提案を一時停止する（現在実行中） - Amazon Q Developerは、あなたのコードで直接作業している間、提案されたコードブロックとスニペットを提供します。このリンクをクリックすることで、この動作をオフにできます（その後、「自動提案を再開する」、「現在停止中」に変わり、下のステータスバーのAmazon Qアイコンも変わります）。開発者によって、このオプションを無効にした方がいい人もいれば、有効にした方がいい人もいます。一時停止中でも、VSCodeショートカット（OPTION + C）を使うことで、Amazon Q Developerを呼び出してインライン コード サジェストを提供できます。キーボードのショートカットについては、次の節で紹介します。
+* オープンコードリファレンスログ - Amazon Q Developerを動かすために使用される基礎モデルは、Apache 2.0とMITライセンスのソースファイルを使用して、いくつかのオープンソースコードリポジトリを使用しています。コードの提案にこれらのプロジェクトからの部分が含まれる場合、Amazon Q Developerは、このメニューオプションをクリックして開くことができる「コード参照ログ」に出力することであなたに知らせます。これをクリックすると、「Don't want suggestions that include code with references? Amazon Q: Settings」でこのオプションのチェックを外してください。Builder IDを使用している場合、この設定を変更することはできず、デフォルトのオプションは常にコード参照を含む提案を含むようになっています。Amazon Q Developerを使用する際には、オープンソースリポジトリからのコードを使用しているかどうかを確認するために、ときどきここをチェックしてください。
+* インラインサジェスト例を試す - Amazon Q Developerのインラインサジェストの使い方の基本を説明する簡単なチュートリアルです。
+* フルプロジェクトスキャンが /review になりました - これは現在のプロジェクトの /review をキックオフします。このチュートリアルの後半で詳しく説明します。
+* チャットパネルを開く - Amazon Q Developerのチャットパネルを閉じている場合に開きます。
+* フィードバックの送信 / GitHubを確認する / ドキュメンテーションの表示 - これらのオプションは、Amazon Q Developerが思うように動作しない場合にフィードバックを提供するための追加の方法を提供します。
+* 設定を開く - Amazon Q Developerプラグインの設定オプションを開きます。
+* サインアウト (AWS Builder IDで接続中) - IDを表示したまま、現在のセッションからログアウトできます。このワークショップでは、常に AWS Builder ID となります。
 
 ---
 
-**Chat Interface**
+**キーボードショートカット**
 
-You can open the Chat Panel by clicking on the Amazon Q status bar link at the bottom, which by default, will make it appear on the left hand side with the other application artifacts (like files open, git files, etc). You can drag the Chat Panel to the right hand side, as in the screenshot below, which I find helpful as it allows me to see my files in the project, the files I am editing, and then also provide me with my chat interface.
+さまざまなショートカットキーを使って、Amazon Q Developerの起動方法や動作をコントロールできます。
 
-![Amazon Q Developer Chat interface](/images/q-vscode-screen-layout.png)
+![Amazon Q Developerのショートカット](/images/q-vscode-view-keyboard.png)
 
-You can click on the + to open several chat sessions. When using Amazon Q Developer, the plugin will remember the conversations and use that in subsequent responses. This is very helpful when using Amazon Q to work through and troubleshoot issues. We will see this throughout this lab. You can open up to ten of these different tabs or conversations.
-
-Amazon Q Developer also has some power features which are invoked using the /
-
-* **/** brings up a list of the available commands. As Amazon Q Developer gains more capabilities, these will be displayed here
-* **/clear** clears the current chat window conversation history, which is useful if you find the responses becoming circular or you want to reset the conversation context
-* **/dev** invokes the Amazon Q Developer Agent for software development, and with this, it can create files, add new features, add tests, create documentation, and more. This is one of the most powerful features of Amazon Q Developer, as it will start to take your prompt, break it down into tasks, and then start working through the different tasks in realtime. It explores the files in your workspace to understand your project, and it will share which files it has reviewed and used, files it might want to change, and any new files it has created. Once finished, you will be able to review, check, and if desired, accept these updates.
-* **/transform** invokes the Amazon Q Developer Agent for transformation that helps you migrate Java 8 projects to Java 17, taking the effort out of modernising your applications. We will not be using that during this lab, but it is worth knowing about if you are working with old Java applications.
-* **/review** invokes the Amazon Q Developer Agent that will perform a review of the current project. This replaces the Security Scan feature that used to be in the Amazon Q Developer plugin
-* **/doc** invokes the Amazon Q Developer Agent that will generate README's for your project, allowing you to create or update a README file so that you can keep your project documented
-* **/test** invokes the Amazon Q Developer Agent that generates unit tests against functions. This currently only works for Java and Python code.
-
-**Note!** When using /dev and /transform with Builder IDs, you have limited quota. You can find out more on the official [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el), if you scroll half way down you will see a table which outlines the limits you have open to you.
+インラインエディターで作業している時に知っておくべき重要なショートカットの一つは、 < と > （左右）の矢印です。これらは、Amazon Q Developerによってプロンプトが表示されたときに、候補を循環させることができます。
 
 ---
 
-**Menu bar integration**
+**チャットインターフェイス**
 
-When you are working on our code within the editor, Amazon Q Developer provides a handy way to quickly invoke it to perform a number of functions. When working on a file, you can select a portion of code, or even if you want the whole thing, and then when you RIGHT CLICK, you will see an "Send to Amazon Q" menu option, which when you select you will see a number of options:
+下の Amazon Q ステータスバーのリンクをクリックすることでチャットパネルを開くことができ、デフォルトでは他のアプリケーションの成果物（開いているファイル、Git ファイルなど）と一緒に左側に表示されます。
+下のスクリーンショットのように、チャットパネルを右側にドラッグすると、プロジェクト内のファイルや編集中のファイルを見つつチャットインターフェイスが見られて、個人的には便利だと思います。
 
-![Amazon Q Developer editor menus](/images/q-vscode-editor-menu.png)
+![Amazon Q Developerチャットインターフェイス](/images/q-vscode-screen-layout.png)
 
-* Explain - this will send whatever you have highlighted to the Amazon Q Chat panel, and ask Amazon Q to help explain what this code does
-* Refactor - this will review the snippet and suggest ways you can improve code readability or efficiency, among other improvements
-* Fix - this is handy if you are seeing linting errors in your code, or are trying to resolve other issues with your code
-* Optimise - this will look to see if it can optimise the performance of the code you have selected
-* Generate Tests - this will take the current function or class that you have highlighted, and then invoke the /test from within the chat interface. It wil then walk you through the steps for generating units tests for that function or class
-* Send to Prompt - this will copy the portion you have selected and then move it to the Amazon Q Developer Chat Panel. You can then provide your own prompt to ask Amazon Q Developer what you want it to do. This is an easier way than copy/pasting the code snippet yourself.
-* Inline Chat - this will bring up a small dialog box within the file you are editing, allowing you to enter a prompt. Amazon Q will then generate some code, asking you to then accept or reject it (hitting Enter to accept, or ESC to reject)
+`+` をクリックすると複数のチャットセッションを開くことができます。
+Amazon Q Developerを使用する場合、プラグインは会話を記憶し、その後の応答でそれを使用します。
+これは、Amazon Qを使用して問題の解決やトラブルシューティングを行う際に非常に便利です。
+このワークショップでは、これをずっと見ていきます。
+これらの異なるタブや会話を10個まで開くことができます。
 
-![Example inline chat window](/images/q-vscode-inline-chat.png)
-![Example inline chat response](/images/q-vscode-inline-chat-example.png)
+Amazon Q Developerには、`/` を使った以下のような強力な機能もあります。
+
+* **/** 利用可能なコマンドのリストが表示されます。Amazon Q Developerの機能が増えるにつれて、ここに追加で表示されるようになります。
+* **/clear** 現在のチャットウィンドウの会話履歴をクリアします。応答が回りくどくなったり、会話のコンテキストをリセットしたい場合に便利です。
+* **/dev** これで、ファイルの作成、新機能の追加、テストの追加、ドキュメントの作成などができます。これはAmazon Q Developerのもっとも強力な機能の1つで、あなたのプロンプトを受け取り、タスクに分解し、リアルタイムでさまざまなタスクを通して作業を開始します。あなたのプロジェクトを理解するためにワークスペース内のファイルを探索し、どのファイルを確認し使用したか、変更したいファイル、新しく作成したファイルを共有します。終了すると、これらの更新を確認、チェックし、必要に応じて承認できます。
+* **/transform** は、Java 8プロジェクトをJava 17に移行し、アプリケーションを最新化する手間を省くのに役立つ、Amazon Q Developer Agent for transformation を呼び出します。このワークショップでは使用しませんが、古いJavaアプリケーションを使用している場合は知っておく価値があります。
+* **/review** Amazon Q Developer Agentを呼び出し、現在のプロジェクトのレビューを実行します。これは Amazon Q Developer プラグインにあったセキュリティスキャン機能を置き換えるものです。
+* **/doc** プロジェクトのREADMEを生成するAmazon Q Developer Agentを起動し、READMEファイルを作成または更新することができます。
+* **/test** 関数に対する単体テストを生成する Amazon Q Developer Agent を起動します。これは現在JavaとPythonのコードでのみ動作します。
+
+**Note!** Builder IDで /dev と /transform を使用する場合、クォータに制限があります。詳しくは公式の[Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/)をご覧ください。下へ半分ほどスクロールすると、制限の概要が書かれた表があります。
 
 ---
 
-**Amazon Q Developer logs**
+**メニューバーへの統合**
 
-The Amazon Q Developer plugin generates logs that you can access from the OUTPUT menu option that appears when you have the terminal section in VSCode. When you select the pull down menu, you will see **Amazon Q Logs**. This provides detailed information about how the plugin is working and interacting with the backend generative AI services powered by Amazon Bedrock. One of the key pieces of information that is captured here is **ConversationID** which tracks the plugin's interactions and is useful if you are engaging with the Amazon Web Services support. 
+Amazon Q Developerは、エディタ内でコードを作業しているときに、Amazon Qを呼び出して多くの機能を実行する便利な方法を提供します。
+ファイル上で作業している時、コードの一部分、もしくは全体を選択し、右クリックすると「Send to Amazon Q」メニューオプションが表示され、選択するとさまざまなオプションが表示されます。
+
+![Amazon Q Developerエディタメニュー](/images/q-vscode-editor-menu.png)
+
+* Explain - ハイライトした内容をAmazon Qのチャットパネルに送信し、Amazon Qにこのコードが何をするのかを説明するよう依頼します。
+* Refactor - スニペットをレビューし、コードの可読性や効率性を改善する方法を提案します。
+* Fix - あなたのコードにlintエラーがあったり、コードの他の問題を解決しようとしている場合に便利です。
+* Optimise - 選択したコードのパフォーマンスを最適化できるかどうかを確認します。
+* Generate Tests - 現在の関数やクラスをハイライトし、チャットインターフェースから /test を呼び出します。そして、その関数やクラスのユニットテストを生成するための手順を説明します。
+* Send to Prompt - 選択した部分をコピーし、Amazon Q Developer Chatパネルに移動します。その後、Amazon Q Developer に何をさせたいか、あなた自身のプロンプトを提供できます。これは自分でコードスニペットをコピー/ペーストするよりも簡単な方法です。
+* Inline Chat - 編集中のファイル内に小さなダイアログボックスが表示され、プロンプトを入力できます。Amazon Qはコードを生成し、それを受け入れるか拒否するかを尋ねます（受け入れるにはEnterを、拒否するにはESCを押してください）。
+
+![インラインチャットウィンドウの例](/images/q-vscode-inline-chat.png)
+![インラインチャットの応答の例](/images/q-vscode-inline-chat-example.png)
 
 ---
 
-**Workspace Indexing**
+**Amazon Q Developerのログ**
 
-Amazon Q Developer allows you to index your local workspace which can then be used as part of the context when using the Chat interface. This is a very powerful feature that allows you to bring in additional information to help steer the direction of the output from Amazon Q Developer. For example, maybe you have some existing coding standards you want to influence any code that is generated by Amazon Q. Another way that you can use this is to help personalise the kind of output that Amazon Q Developer generates. You will see some examples of this in the .qdeveloper folder. There are two files, once called "java-expert.md" and the other "opensource.md". These contain additional prompts that will shape the output. A common way you can use this is to create shorter output, perhaps just outputing the code rather than any explaination.
+Amazon Q Developerプラグインはログを生成し、VSCodeのターミナル節で表示されるOUTPUTメニューオプションからアクセスできます。
+プルダウンメニューを選択すると、**Amazon Q Logs** が表示されます。
+これは、プラグインがどのように動作し、Amazon Bedrockによって提供されるバックエンドの生成AIサービスと相互作用しているかについての詳細な情報を提供します。
+ここで取得される重要な情報の1つは**ConversationID**で、プラグインのインタラクションを追跡し、Amazon Web Servicesのサポートとやりとりする場合に役立ちます。
 
-You use this feature from within the Amazon Q Developer Chat interface. You invoke it with @ which will then display the available options. Currently this is only @workspace.
+---
 
-To use @workspace however, you need to first set this up. From the Amazon Q Developer plugin settings, you will see some new options.
+**ワークスペース インデックス**
 
-![Amazon Q Developer plugin configuration options to enable workplace indexing](/images/q-workspace-settings.png)
+Amazon Q Developerでは、ローカルのワークスペースのインデックスを作成でき、それをチャットインターフェイスを使用する際のコンテキストの一部として使用できます。
+これは非常に強力な機能で、Amazon Q Developerからのアウトプットの方向性を決めるのに役立つ追加情報を持ち込むことができます。
+たとえば、Amazon Qによって生成されるコードに影響を与えたい既存のコーディング標準があるかもしれません。
+`.qdeveloper` フォルダにいくつかの例があります。
+2つのファイルがあり、1つは "java-expert.md"、もう1つは "opensource.md "です。
+これらには出力のフォーマットを決める追加のプロンプトが含まれています。
+これを使う一般的な方法は、より短い出力を作成することで、おそらく説明よりもコードだけを出力することです。
 
-Once enabled you will need to restart VSCode. When you restart it, from the OUTPUT tab, you will be able to see the output from the Workspace Index by checking out the Amazon Q Logs
+この機能はAmazon Q Developerのチャットインターフェイスから使用します。
+`@` で呼び出すと、利用可能なオプションが表示されます。
+現在は `@workspace` のみです。
+
+![ワークスペース インデックスを有効にするAmazon Q Developerプラグインの設定オプション](/images/q-workspace-settings.png)
+
+有効にしたら、VSCode を再起動する必要があります。
+再起動すると、OUTPUT タブから、Amazon Q Logs をチェックすることで、ワークスペース インデックスからの出力を確認できます。
 
 ```
 2025-02-13 18:05:35.784 [info] LspController: LSP already installed
@@ -104,7 +123,8 @@ Once enabled you will need to restart VSCode. When you restart it, from the OUTP
 2025-02-13 18:05:36.768 [info] [Info  - 18:05:36] start building bm25 index
 ```
 
-depending on how big your project is, this might take some time. When it has finished, you will see a message in the logs.
+プロジェクトの規模によっては、時間がかかるかもしれません。
+終了すると、ログにメッセージが表示されます。
 
 ```
 2025-02-13 18:05:57.838 [info] [Info  - 18:05:57] Vector indexing done for 15/18 files
@@ -114,9 +134,9 @@ depending on how big your project is, this might take some time. When it has fin
 2025-02-13 18:06:02.106 [info] [Info  - 18:06:02] Vector index saved to /Users/ricsue/.aws/amazonq/cache/cache/b34d763123948282822a796f54a637adac670c8b30f241c6a4c21195679dde96-0.9-VSCode.index
 ```
 
-One the indexing has completed, @worksplace will be ready to go.
+インデックス作成が完了すれば、 `@worksplace` はすぐに使えるようになります。
 
-As you update/delete files, the index is automatically updated.
+ファイルを更新/削除すると、インデックスが自動的に更新されます。
 
 ```
 2025-02-13 18:01:24.084 [info] Refreshing indexes...
@@ -127,47 +147,47 @@ As you update/delete files, the index is automatically updated.
 
 ## Amazon Q Developer
 
-Amazon Q Developer provides a number of useful tools, but you might be wondering which one should I use? The answer is that this depends on the kind of activities that you are doing. Here are some things to consider that will help you decide for a given activity what might be the right tool.
+Amazon Q Developerには便利なツールがたくさんありますが、どれを使えばいいのか迷ってしまいますよね。
+答えは、あなたが行っている作業の種類によります。
+ここでは、ある作業に対して何が適切なツールかを判断するのに役立つ、考慮すべき点をいくつか紹介します。
 
-**Which Amazon Q Developer tool should I use?**
+**Amazon Q Developerのどのツールを使うべきか**
 
-Which tool use use depends on a number of factors:
+どのツールを使うかは、さまざまな要因によります。
 
-* What context can each tool use (file vs project)
-* The difference in speed and developer experience, using inline editing is faster and more intuitive for developer
-* The different Amazon Q developer capabilities have limits and quotas, so use when they are most impactful
-* The amount of effort a task needs is a consideration. For example, you might want to make large or big changes to your project, where the effort to do this manually would be significant
-* Are you learning something vs want to go faster? Chat tends to work great for learning new areas, where as inline works great for boosting productivity
+* 各ツールがどのようなコンテキストで使用できるか（ファイルかプロジェクトか）
+* インライン編集は開発者にとってより速く、より直感的です
+* Amazon Qの開発者向け機能には制限とクォータがあるため、もっとも効果的なときに使用すること
+* タスクが必要とする労力は考慮しなければなりません。たとえば、プロジェクトに大きな変更を加えたい場合、手作業で行うには多大な労力がかかります。
+* あなたは何かを学んでいますか。チャットは新しい分野を学ぶのに適しており、インラインは生産性を高めるのに適しています。
 
-We will learn more about this in the next lab.
+これについては、次のステップで詳しく説明します。
 
 ---
 
-### Amazon Q Developer - Guardrails
+### Amazon Q Developer - ガードレール
 
-In this last section we take a look at something that you are probably going to encounter as you use Amazon Q Developer - the [AWS Responsible AI Policy](https://aws.amazon.com/machine-learning/responsible-ai/policy/).
+この最後の節では、Amazon Q Developerを使用する際におそらく遭遇することになるであろう、[AWS 責任ある AI ポリシー](https://aws.amazon.com/machine-learning/responsible-ai/policy/)について見ていきます。
 
-Occasionally as you use and interact with Amazon Q Developer in any of the different modalities (chat, /dev, @workspace, or in-line), the output may come to an stop and you will be greeted a message.
+Amazon Q Developerをさまざまなモダリティ（チャット、/dev、@workspace、またはインライン）で使用し、やりとりしていると、出力が停止し、メッセージが表示されることがあります。
 
-![Guardrail message one](/images/q-vscode-guardrail.png)
+![Guardrailのメッセージ](/images/q-vscode-guardrail.png)
 
-The message might take other forms, for example with an error popup appearing in the bottom right of VSCode.
+メッセージの内容は異なるかもしれません。たとえば、VSCodeの右下に表示されるエラーポップアップなどです。
 
 ![Guardrail tripping](/images/q-vscode-error.png)
 
-If you do encounter these, then try:
+もしこのようなことに遭遇したら、以下を試してみてください。
 
-* adjusting the prompt - use different words, change the order
-* test this against different files in your repo - sometimes it can be just one file that trips the guardrails, so you can narrow down where Amazon Q is tripping up
-* review the Amazon Q Logs to see if you can find any information that might help you identify the root issue
+* プロンプトを調整する - 別の単語を使ったり、順番を変えたりする。
+* リポジトリ内の異なるファイルに対してテストする - ときにはガードレールに引っかかるのは1つのファイルだけということもあるので、Amazon Qが引っかかる場所を絞り込むことができます。
+* Amazon Qのログを確認し、根本的な問題の特定に役立つ情報がないか確認する。
 
-The guardrails provide important protection for users of Amazon Q, and the tension between what will work and what trips them is changing all the time.
+ガードレールはAmazon Qのユーザーにとって重要な保護手段であり、何が有効で何がつまずくかの関係は常に変化しています。
 
+### サンドボックスで手を動かす
 
-
-
-### Getting hands on in the sandbox
-
-Let's try some of these out now in the next lab which will walk you through how these work in detail. [Practicing with Amazon Q Developer](03-sandbox.md)
+次のステップでは、これらがどのように機能するかを詳しく説明します。
+[Amazon Q Developerの練習](03-sandbox.md)へ進んでください。
 
 
