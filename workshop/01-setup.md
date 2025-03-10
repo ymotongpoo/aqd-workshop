@@ -21,7 +21,7 @@ Once you have received that code, enter it to validate your account (5), which s
 When you hear the term Builder ID when working with AWS services, this is the account they are referring to. It is separate from the AWS account, but is used by a number of services to provide access to those who want to try and AWS without the need for a full AWS account.
 
 
-> **Logging out of your Builder ID** Sometimes you might need to log out of your Builder ID, and in order to do this you should head over to your [Builder ID Profile page](https://profile.aws.amazon.com/#/profile/details) and use the **Sign Out** button on the top left. Clicking on this will return you to the sign on page.
+> **Logging out of your Builder ID** Sometimes you might need to log out of your Builder ID, and in order to do this you should head over to your [Builder ID Profile page](https://profile.aws.amazon.com/#/profile/details?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el) and use the **Sign Out** button on the top left. Clicking on this will return you to the sign on page.
 
 
 **Installing Amazon Q Developer**
