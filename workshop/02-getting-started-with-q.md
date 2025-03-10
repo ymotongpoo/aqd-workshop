@@ -49,7 +49,7 @@ Amazon Q Developer also has some power features which are invoked using the /
 * **/doc** invokes the Amazon Q Developer Agent that will generate README's for your project, allowing you to create or update a README file so that you can keep your project documented
 * **/test** invokes the Amazon Q Developer Agent that generates unit tests against functions. This currently only works for Java and Python code.
 
-**Note!** When using /dev and /transform with Builder IDs, you have limited quota. You can find out more on the official [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/), if you scroll half way down you will see a table which outlines the limits you have open to you.
+**Note!** When using /dev and /transform with Builder IDs, you have limited quota. You can find out more on the official [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el), if you scroll half way down you will see a table which outlines the limits you have open to you.
 
 ---
 
